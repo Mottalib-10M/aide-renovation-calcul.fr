@@ -1,0 +1,20 @@
+# aide-renovation-calcul.fr
+
+> Simulateur gratuit de cumul des aides à la rénovation énergétique en France.
+
+## Outils disponibles
+
+- Simulateur MaPrimeRénov' 2026 : calcule les montants d'aide par catégorie de revenus (Bleu, Jaune, Violet, Rose) et par type de travaux
+- Cumul des aides : MaPrimeRénov' + primes CEE + éco-PTZ + TVA réduite 5,5 %
+- Guide MaPrimeRénov' : plafonds de revenus, montants par geste, conditions d'éligibilité
+- Guide Isolation thermique : techniques, matériaux, coûts, retour sur investissement
+
+## Sources des données
+
+- ANAH (anah.gouv.fr) : barèmes MaPrimeRénov' 2026
+- Décret n°2020-26 et arrêtés modificatifs
+- Observatoire des primes CEE
+
+## Avertissement
+
+Les résultats sont indicatifs. Les montants réels dépendent des devis, de l'entreprise RGE et de la validation ANAH. Consultez maprimerenov.gouv.fr pour une simulation officielle.

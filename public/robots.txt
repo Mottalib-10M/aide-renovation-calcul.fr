@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Sitemap: https://aide-renovation-calcul.fr/sitemap-index.xml
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /

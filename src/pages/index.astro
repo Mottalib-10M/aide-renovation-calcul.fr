@@ -1,0 +1,334 @@
+---
+import Layout from '../layouts/Layout.astro';
+import RenovationCalculator from '../components/RenovationCalculator';
+---
+
+<Layout
+  title="Simulateur Aides Rénovation Énergétique 2026 — MaPrimeRénov', CEE, Éco-PTZ"
+  description="Calculez gratuitement le cumul de vos aides à la rénovation énergétique : MaPrimeRénov' 2026, primes CEE, éco-PTZ, TVA 5,5 %. Estimation par catégorie de revenus et type de travaux."
+>
+  <div class="space-y-10">
+    <!-- H1 + intro -->
+    <div class="text-center max-w-3xl mx-auto">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Simulateur d'aides à la rénovation énergétique 2026
+      </h1>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        Estimez en quelques clics le montant total de vos aides : MaPrimeRénov', primes CEE,
+        éco-PTZ et TVA réduite. Notre simulateur calcule automatiquement votre catégorie de revenus
+        et le cumul des aides selon les barèmes officiels en vigueur au 1<sup>er</sup> janvier 2026.
+      </p>
+    </div>
+
+    <!-- Calculateur React -->
+    <RenovationCalculator client:load />
+
+    <!-- Contenu éditorial SEO (1500+ mots) -->
+    <div class="prose prose-slate max-w-none">
+
+      <h2>Comment fonctionne le simulateur d'aides à la rénovation ?</h2>
+      <p>
+        Notre simulateur croise trois sources de financement complémentaires pour estimer le montant total
+        des aides auxquelles vous pouvez prétendre. La première étape consiste à déterminer votre catégorie
+        de revenus MaPrimeRénov' en fonction de votre revenu fiscal de référence (RFR), du nombre de personnes
+        composant votre foyer fiscal et de votre zone géographique (Île-de-France ou hors Île-de-France).
+        L'ANAH distingue quatre catégories : les ménages aux revenus très modestes (catégorie Bleu), modestes
+        (Jaune), intermédiaires (Violet) et supérieurs (Rose). Chaque catégorie donne accès à des montants
+        d'aide différents.
+      </p>
+      <p>
+        La deuxième étape est la sélection de vos travaux. Le simulateur prend en charge seize types de
+        gestes de rénovation énergétique, du remplacement du système de chauffage (pompes à chaleur,
+        chaudières bois, poêles à granulés, systèmes solaires) à l'isolation thermique (murs, combles,
+        planchers, fenêtres) en passant par la ventilation (VMC double flux) et les travaux annexes
+        (audit énergétique, dépose de cuve à fioul). Pour chaque geste, vous indiquez la quantité
+        concernée (surface en m² pour l'isolation, nombre pour les fenêtres) et le coût total TTC
+        estimé d'après vos devis.
+      </p>
+      <p>
+        Le simulateur calcule ensuite le montant de MaPrimeRénov' correspondant à chaque geste selon
+        votre catégorie de revenus, puis ajoute une fourchette de prime CEE (Certificats d'Économies
+        d'Énergie). Les primes CEE sont versées par les fournisseurs d'énergie (EDF, Engie, TotalEnergies)
+        et leur montant varie selon le prestataire choisi. C'est pourquoi nous affichons une fourchette
+        basse et haute plutôt qu'un montant unique. L'économie de TVA (différence entre le taux normal
+        de 20 % et le taux réduit de 5,5 % applicable aux travaux de rénovation énergétique dans les
+        logements de plus de 2 ans) est également intégrée au calcul.
+      </p>
+
+      <h2>Les quatre catégories de revenus MaPrimeRénov' en 2026</h2>
+      <p>
+        La catégorie de revenus est le paramètre central de MaPrimeRénov'. Elle conditionne non seulement
+        le montant de l'aide, mais aussi l'éligibilité à certains gestes. Les ménages de catégorie Rose
+        (revenus supérieurs) n'ont par exemple accès qu'aux aides à l'isolation, et non aux aides au
+        remplacement du système de chauffage.
+      </p>
+      <p>
+        Les plafonds de revenus diffèrent entre l'Île-de-France et le reste de la France, reflétant
+        le coût de la vie plus élevé en région parisienne. Pour un foyer d'une personne, le plafond
+        de la catégorie Bleu est de 23 541 € en Île-de-France contre 17 009 € hors Île-de-France.
+        Pour un foyer de quatre personnes, ces plafonds passent respectivement à 48 447 € et 34 948 €.
+        Au-delà de cinq personnes, un montant fixe par personne supplémentaire s'ajoute au plafond.
+      </p>
+      <p>
+        Le revenu fiscal de référence utilisé est celui de l'avant-dernière année d'imposition, soit
+        l'avis d'imposition 2025 sur les revenus 2024 pour les demandes déposées en 2026. Il figure
+        sur la première page de votre avis d'imposition, dans le cadre « Vos références ». Si votre
+        situation a changé significativement (perte d'emploi, divorce, retraite), vous pouvez demander
+        une prise en compte de vos revenus de l'année en cours sous conditions.
+      </p>
+
+      <h2>Les aides cumulables pour vos travaux de rénovation</h2>
+      <h3>MaPrimeRénov' — L'aide principale de l'État</h3>
+      <p>
+        Créée en 2020 pour remplacer le crédit d'impôt transition énergétique (CITE) et les aides
+        de l'ANAH « Habiter Mieux Sérénité », MaPrimeRénov' est aujourd'hui l'aide principale à la
+        rénovation énergétique des logements. Elle est versée par l'ANAH sous forme de prime, après
+        réalisation des travaux par un professionnel certifié RGE (Reconnu Garant de l'Environnement).
+      </p>
+      <p>
+        Les montants varient de quelques centaines d'euros pour un audit énergétique ou un
+        chauffe-eau thermodynamique, à plus de 10 000 € pour une pompe à chaleur géothermique
+        en catégorie Bleu. L'aide est plafonnée à 40 000 € par logement sur une période glissante
+        de 5 ans, toutes catégories confondues. Le logement doit être une résidence principale
+        occupée au moins 8 mois par an, construite depuis plus de 15 ans (ou 2 ans pour le
+        remplacement d'une chaudière au fioul ou au charbon).
+      </p>
+
+      <h3>Les primes CEE — Les certificats d'économies d'énergie</h3>
+      <p>
+        Le dispositif des CEE impose aux fournisseurs d'énergie (les « obligés ») de financer des
+        actions d'économies d'énergie chez les particuliers, les entreprises et les collectivités.
+        En pratique, les fournisseurs versent des primes aux ménages qui réalisent des travaux
+        d'efficacité énergétique. Le montant de la prime dépend du type de travaux, de la zone
+        climatique, du type de chauffage remplacé et du fournisseur choisi.
+      </p>
+      <p>
+        Les primes CEE sont cumulables avec MaPrimeRénov' dans la limite du taux d'écrêtement
+        applicable à chaque catégorie de revenus. Ce taux limite le cumul des aides publiques à
+        90 % du coût TTC des travaux pour les ménages Bleu, 75 % pour les Jaune, 60 % pour les
+        Violet et 40 % pour les Rose. Le reste à charge minimum est donc de 10 % pour les ménages
+        les plus modestes et de 60 % pour les plus aisés.
+      </p>
+
+      <h3>L'éco-PTZ — Le prêt à taux zéro pour la rénovation</h3>
+      <p>
+        L'éco-prêt à taux zéro permet de financer le reste à charge sans payer d'intérêts. Son
+        montant maximal dépend du nombre de gestes de travaux réalisés : 15 000 € pour un geste
+        unique, 25 000 € pour deux gestes et 30 000 € pour trois gestes ou plus. Dans le cadre
+        d'une rénovation globale atteignant un gain énergétique d'au moins 35 %, l'éco-PTZ peut
+        atteindre 50 000 €. La durée de remboursement maximale est de 20 ans.
+      </p>
+      <p>
+        L'éco-PTZ est accessible sans conditions de ressources. Il est accordé par les banques
+        ayant signé une convention avec l'État. Depuis 2022, il est possible de coupler l'éco-PTZ
+        avec MaPrimeRénov' : la décision d'attribution de MaPrimeRénov' vaut justificatif pour
+        l'obtention du prêt, ce qui simplifie considérablement les démarches.
+      </p>
+
+      <h3>La TVA à 5,5 % — L'avantage fiscal automatique</h3>
+      <p>
+        Les travaux de rénovation énergétique bénéficient d'un taux de TVA réduit à 5,5 % au lieu
+        du taux normal de 20 %. Cette réduction s'applique automatiquement sur la facture de
+        l'entreprise, sans démarche particulière de la part du propriétaire (hormis la signature
+        d'une attestation de plus de 2 ans). Elle concerne à la fois la fourniture des matériaux
+        et équipements, et la main-d'œuvre. Pour un chantier d'isolation à 15 000 € TTC, l'économie
+        de TVA représente environ 2 000 €.
+      </p>
+
+      <h2>Les travaux éligibles aux aides en 2026</h2>
+      <h3>Le chauffage — Le poste le plus aidé</h3>
+      <p>
+        Le remplacement du système de chauffage est le geste le plus subventionné, car il représente
+        en moyenne 60 à 70 % de la consommation énergétique d'un logement. Les pompes à chaleur
+        (air/eau et géothermique) sont les solutions les plus performantes avec un coefficient de
+        performance (COP) de 3 à 5, ce qui signifie qu'elles produisent 3 à 5 kWh de chaleur pour
+        1 kWh d'électricité consommée. La PAC air/eau, qui puise les calories dans l'air extérieur,
+        est la plus couramment installée avec un coût moyen de 12 000 à 18 000 € pose comprise.
+        La PAC géothermique, plus performante mais plus coûteuse (20 000 à 25 000 €), nécessite un
+        forage ou un réseau de capteurs enterrés.
+      </p>
+      <p>
+        Les chaudières bois (bûches ou granulés) constituent une alternative intéressante dans les
+        zones rurales avec un accès facile au combustible bois. Le poêle à granulés est une solution
+        de chauffage d'appoint très populaire, avec un coût d'achat et d'installation de 3 000 à
+        5 000 €. Les systèmes solaires combinés et les chauffe-eau solaires individuels complètent
+        l'offre en exploitant l'énergie solaire thermique.
+      </p>
+
+      <h3>L'isolation thermique — La priorité avant le chauffage</h3>
+      <p>
+        Les experts en rénovation énergétique recommandent de traiter l'enveloppe du bâtiment avant
+        de dimensionner le nouveau système de chauffage. En effet, une maison bien isolée nécessite
+        un système de chauffage moins puissant et donc moins coûteux. L'isolation des murs représente
+        le poste le plus important en termes de gain énergétique (25 % des déperditions thermiques
+        en moyenne), suivie de la toiture (30 % des déperditions), des fenêtres (10 à 15 %) et du
+        plancher bas (7 à 10 %).
+      </p>
+      <p>
+        L'isolation par l'extérieur (ITE) offre de meilleures performances que l'isolation par
+        l'intérieur (ITI) car elle supprime les ponts thermiques et préserve l'inertie thermique
+        des murs. Son coût est cependant plus élevé : 120 à 200 €/m² contre 50 à 90 €/m² pour
+        l'ITI. Les aides MaPrimeRénov' reflètent cette différence avec 75 €/m² en catégorie Bleu
+        pour l'ITE contre 25 €/m² pour l'ITI.
+      </p>
+
+      <h3>La ventilation — Le complément indispensable</h3>
+      <p>
+        L'installation d'une VMC double flux est le complément logique d'une rénovation de
+        l'enveloppe thermique. En récupérant jusqu'à 90 % de la chaleur de l'air extrait, elle
+        permet de ventiler le logement sans déperdition de chaleur significative. Son coût moyen
+        de 4 000 à 6 000 € est partiellement couvert par MaPrimeRénov' (jusqu'à 2 500 € en
+        catégorie Bleu) et les primes CEE.
+      </p>
+
+      <h2>L'écrêtement et les règles de cumul</h2>
+      <p>
+        Le cumul des aides publiques est plafonné par un mécanisme d'écrêtement qui garantit un
+        reste à charge minimum pour le bénéficiaire. Le taux d'écrêtement varie selon la catégorie
+        de revenus : 90 % pour les ménages Bleu (reste à charge minimum de 10 %), 75 % pour les
+        Jaune (25 %), 60 % pour les Violet (40 %) et 40 % pour les Rose (60 %). Concrètement,
+        pour un chantier de 20 000 € TTC et un ménage de catégorie Jaune, le cumul MaPrimeRénov'
+        + CEE ne peut pas dépasser 15 000 € (75 % de 20 000 €).
+      </p>
+      <p>
+        L'éco-PTZ et la TVA réduite ne sont pas concernés par l'écrêtement car ils ne constituent
+        pas des subventions directes. L'éco-PTZ est un prêt (certes sans intérêts) et la TVA
+        réduite est un avantage fiscal applicable à tous les propriétaires sans conditions de
+        ressources.
+      </p>
+
+      <h2>Les conditions d'éligibilité communes</h2>
+      <p>
+        Toutes les aides à la rénovation énergétique partagent des conditions d'éligibilité
+        fondamentales. Le logement doit être une résidence principale achevée depuis au moins
+        15 ans (ou 2 ans pour le remplacement d'une chaudière fioul ou charbon). Les travaux
+        doivent être réalisés par un professionnel certifié RGE (Reconnu Garant de l'Environnement)
+        dans le domaine de travaux concerné. Le label RGE est un gage de qualité qui atteste de
+        la compétence de l'entreprise pour réaliser les travaux visés.
+      </p>
+      <p>
+        La demande de MaPrimeRénov' doit être déposée sur la plateforme maprimerenov.gouv.fr avant
+        le début des travaux. Un accompagnateur France Rénov' peut vous aider gratuitement dans
+        vos démarches et vous orienter vers les solutions les plus adaptées à votre situation. Depuis
+        2024, le recours à un accompagnateur agréé Mon Accompagnateur Rénov' est obligatoire pour les
+        projets de rénovation d'ampleur (gain énergétique de deux classes DPE ou plus).
+      </p>
+
+      <h2>Questions fréquentes</h2>
+
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "MaPrimeRénov' est-elle cumulable avec les primes CEE ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui, MaPrimeRénov' est cumulable avec les primes CEE dans la limite du taux d'écrêtement applicable à votre catégorie de revenus : 90 % du coût TTC pour les ménages très modestes (Bleu), 75 % pour les modestes (Jaune), 60 % pour les intermédiaires (Violet) et 40 % pour les supérieurs (Rose)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Faut-il faire appel à un artisan RGE pour bénéficier des aides ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui, la certification RGE (Reconnu Garant de l'Environnement) de l'artisan est une condition obligatoire pour bénéficier de MaPrimeRénov', des primes CEE et de l'éco-PTZ. Le label doit être valide au moment de la signature du devis et correspondre au type de travaux réalisés."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel est le montant maximum de MaPrimeRénov' sur 5 ans ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le plafond de MaPrimeRénov' est de 40 000 € par logement sur une période glissante de 5 ans. Ce plafond s'applique au cumul de toutes les demandes MaPrimeRénov' déposées pour le même logement sur cette période."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Peut-on bénéficier de l'éco-PTZ et de MaPrimeRénov' en même temps ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui, depuis 2022, l'éco-PTZ est cumulable avec MaPrimeRénov'. La notification d'accord de MaPrimeRénov' vaut justificatif auprès de la banque pour obtenir l'éco-PTZ. Le montant du prêt est de 15 000 € pour un geste, 25 000 € pour deux gestes et 30 000 € pour trois gestes ou plus."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "La TVA à 5,5 % s'applique-t-elle automatiquement ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui, le taux réduit de TVA à 5,5 % s'applique automatiquement aux travaux de rénovation énergétique dans un logement achevé depuis plus de 2 ans. Il suffit de remplir une attestation simplifiée (cerfa n°13948*05) remise à l'artisan avant la facturation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Les locataires peuvent-ils bénéficier de MaPrimeRénov' ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Non, MaPrimeRénov' est réservée aux propriétaires occupants, propriétaires bailleurs et copropriétaires. Les locataires ne peuvent pas en bénéficier directement, mais ils peuvent encourager leur propriétaire à entreprendre des travaux et bénéficier indirectement de la baisse des charges énergétiques."
+            }
+          }
+        ]
+      })} />
+
+      <details>
+        <summary><strong>MaPrimeRénov' est-elle cumulable avec les primes CEE ?</strong></summary>
+        <p>
+          Oui, MaPrimeRénov' est cumulable avec les primes CEE dans la limite du taux d'écrêtement
+          applicable à votre catégorie de revenus : 90 % du coût TTC pour les ménages très modestes
+          (Bleu), 75 % pour les modestes (Jaune), 60 % pour les intermédiaires (Violet) et 40 %
+          pour les supérieurs (Rose). L'éco-PTZ et la TVA réduite ne sont pas soumis à l'écrêtement.
+        </p>
+      </details>
+
+      <details>
+        <summary><strong>Faut-il faire appel à un artisan RGE ?</strong></summary>
+        <p>
+          Oui, la certification RGE (Reconnu Garant de l'Environnement) de l'artisan est une condition
+          obligatoire pour bénéficier de MaPrimeRénov', des primes CEE et de l'éco-PTZ. Le label
+          doit être valide au moment de la signature du devis et correspondre au type de travaux
+          réalisés. Vous pouvez vérifier la certification d'un artisan sur l'annuaire
+          officiel france-renov.gouv.fr.
+        </p>
+      </details>
+
+      <details>
+        <summary><strong>Quel est le montant maximum de MaPrimeRénov' sur 5 ans ?</strong></summary>
+        <p>
+          Le plafond de MaPrimeRénov' est de 40 000 € par logement sur une période glissante de 5 ans.
+          Ce plafond s'applique au cumul de toutes les demandes MaPrimeRénov' déposées pour le même
+          logement sur cette période, quelle que soit la catégorie de revenus du demandeur.
+        </p>
+      </details>
+
+      <details>
+        <summary><strong>Peut-on bénéficier de l'éco-PTZ et de MaPrimeRénov' en même temps ?</strong></summary>
+        <p>
+          Oui, depuis 2022, l'éco-PTZ est cumulable avec MaPrimeRénov'. La notification d'accord
+          de MaPrimeRénov' vaut justificatif auprès de la banque pour obtenir l'éco-PTZ sans
+          fournir de devis supplémentaire. Le montant du prêt est de 15 000 € pour un geste,
+          25 000 € pour deux gestes et 30 000 € pour trois gestes ou plus.
+        </p>
+      </details>
+
+      <details>
+        <summary><strong>La TVA à 5,5 % s'applique-t-elle automatiquement ?</strong></summary>
+        <p>
+          Oui, le taux réduit de TVA à 5,5 % s'applique automatiquement aux travaux de rénovation
+          énergétique dans un logement achevé depuis plus de 2 ans. Le propriétaire doit simplement
+          remplir une attestation simplifiée (cerfa n°13948*05) remise à l'artisan avant facturation.
+        </p>
+      </details>
+
+      <details>
+        <summary><strong>Les locataires peuvent-ils bénéficier de MaPrimeRénov' ?</strong></summary>
+        <p>
+          Non, MaPrimeRénov' est réservée aux propriétaires occupants, propriétaires bailleurs et
+          copropriétaires. Les locataires ne peuvent pas en bénéficier directement, mais ils peuvent
+          encourager leur propriétaire à entreprendre des travaux et bénéficier indirectement de la
+          baisse des charges énergétiques.
+        </p>
+      </details>
+    </div>
+  </div>
+</Layout>
