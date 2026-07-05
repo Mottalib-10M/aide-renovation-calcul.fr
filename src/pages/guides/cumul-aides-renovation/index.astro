@@ -1,0 +1,245 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Cumul des Aides à la Rénovation 2026 : Guide pour Maximiser vos Financements"
+  description="Guide complet sur le cumul des aides à la rénovation énergétique : quelles aides combiner, plafonds d'écrêtement, stratégies d'optimisation, exemples chiffrés et erreurs à éviter."
+>
+  <!-- Schema.org BreadcrumbList -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://aide-renovation-calcul.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://aide-renovation-calcul.fr/guides/" },
+      { "@type": "ListItem", "position": 3, "name": "Cumul des aides", "item": "https://aide-renovation-calcul.fr/guides/cumul-aides-renovation/" }
+    ]
+  })} />
+
+  <!-- Schema.org FAQPage -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "MaPrimeRénov' et les primes CEE sont-elles cumulables ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, MaPrimeRénov' et les primes CEE sont entièrement cumulables. Toutefois, le cumul est plafonné par un taux d'écrêtement qui limite le total des aides publiques à un pourcentage du coût TTC des travaux : 90 % pour les ménages Bleu, 75 % pour les Jaune, 60 % pour les Violet et 40 % pour les Rose."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "L'éco-PTZ compte-t-il dans le plafond d'écrêtement ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Non, l'éco-PTZ n'étant pas une subvention mais un prêt (que vous devez rembourser, même si c'est sans intérêts), il n'entre pas dans le calcul du taux d'écrêtement. Vous pouvez donc utiliser l'éco-PTZ pour financer l'intégralité du reste à charge après déduction de MaPrimeRénov' et des primes CEE."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Les aides locales sont-elles cumulables avec les aides nationales ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, dans la plupart des cas, les aides des collectivités locales (régions, départements, communes, intercommunalités) sont cumulables avec MaPrimeRénov', les primes CEE et l'éco-PTZ. Toutefois, certaines collectivités appliquent leurs propres règles de non-cumul. Renseignez-vous auprès de votre espace conseil France Rénov' pour connaître les aides locales disponibles dans votre territoire."
+        }
+      }
+    ]
+  })} />
+
+  <nav class="text-sm text-gray-500 mb-6" aria-label="Fil d'Ariane">
+    <ol class="flex flex-wrap items-center gap-1">
+      <li><a href="/" class="hover:text-primary">Accueil</a></li>
+      <li class="before:content-['›'] before:mx-1"><a href="/guides/" class="hover:text-primary">Guides</a></li>
+      <li class="before:content-['›'] before:mx-1">Cumul des aides</li>
+    </ol>
+  </nav>
+
+  <div class="prose prose-slate max-w-none">
+
+    <h1>Cumul des aides à la rénovation énergétique : stratégies pour maximiser vos financements en 2026</h1>
+
+    <p class="lead text-lg text-gray-600">
+      L'une des forces du système français d'aides à la rénovation énergétique est la possibilité de cumuler plusieurs dispositifs pour réduire considérablement le reste à charge. MaPrimeRénov', primes CEE, éco-PTZ, TVA réduite, aides locales : en combinant intelligemment ces aides, un ménage modeste peut financer 80 à 90 % du coût de ses travaux. Ce guide détaille les règles de cumul, les plafonds, les stratégies d'optimisation et les erreurs à éviter.
+    </p>
+
+    <h2>Vue d'ensemble des aides cumulables</h2>
+
+    <p>
+      Le paysage des aides à la rénovation énergétique en France comprend cinq grandes catégories de dispositifs, chacun avec ses propres règles et conditions. Voici un récapitulatif des principales aides disponibles en 2026 et de leur nature.
+    </p>
+
+    <p>
+      MaPrimeRénov' est une subvention versée par l'ANAH. Elle finance les travaux de rénovation énergétique des résidences principales avec des montants variant selon la catégorie de revenus et le type de travaux. C'est l'aide principale, celle autour de laquelle s'organise le financement du projet.
+    </p>
+
+    <p>
+      Les primes CEE (Certificats d'Économies d'Énergie) sont des primes versées par les fournisseurs d'énergie. Elles complètent MaPrimeRénov' et peuvent représenter 1 000 à 6 000 € selon les travaux. Elles sont accessibles pour les résidences principales et secondaires.
+    </p>
+
+    <p>
+      L'éco-PTZ (éco-prêt à taux zéro) est un prêt bancaire sans intérêts, jusqu'à 50 000 €, qui finance le reste à charge. Ce n'est pas une subvention : vous remboursez le capital emprunté, mais sans intérêts ni frais de dossier. Il n'entre pas dans le calcul du plafond d'écrêtement.
+    </p>
+
+    <p>
+      La TVA réduite à 5,5 % s'applique automatiquement sur la facture de l'artisan pour les travaux d'amélioration de la performance énergétique. Elle réduit le montant TTC des travaux et donc le montant des aides nécessaires et du reste à charge.
+    </p>
+
+    <p>
+      Les aides locales sont les subventions versées par les collectivités territoriales (régions, départements, communes, intercommunalités, EPCI). Leurs montants et conditions varient considérablement d'un territoire à l'autre. Elles peuvent représenter un complément de 500 à 5 000 € selon les cas.
+    </p>
+
+    <h2>Le tableau de compatibilité des aides</h2>
+
+    <p>
+      Voici les règles de cumul entre les différentes aides. MaPrimeRénov' parcours par geste est cumulable avec les primes CEE, l'éco-PTZ, la TVA 5,5 % et les aides locales. MaPrimeRénov' Accompagné (parcours accompagné) est également cumulable avec les mêmes dispositifs. En revanche, MaPrimeRénov' parcours par geste et MaPrimeRénov' Accompagné ne sont pas cumulables entre eux pour le même logement sur la même période. Autrement dit, vous devez choisir l'un ou l'autre des parcours pour un même projet de rénovation.
+    </p>
+
+    <p>
+      Les primes CEE sont cumulables avec MaPrimeRénov', l'éco-PTZ, la TVA 5,5 % et les aides locales. Elles ne sont toutefois pas cumulables entre elles : vous ne pouvez obtenir qu'une seule prime CEE par type de travaux (vous ne pouvez pas toucher une prime d'EDF et une prime d'Engie pour la même isolation de murs).
+    </p>
+
+    <p>
+      L'éco-PTZ est cumulable avec toutes les aides sans restriction, car c'est un prêt et non une subvention. La TVA à 5,5 % s'applique automatiquement et est cumulable avec tout. Les aides locales sont généralement cumulables avec les aides nationales, mais vérifiez les conditions spécifiques de chaque collectivité.
+    </p>
+
+    <h2>Le mécanisme d'écrêtement</h2>
+
+    <h3>Qu'est-ce que le taux d'écrêtement ?</h3>
+
+    <p>
+      Le taux d'écrêtement est un plafond qui limite le total des aides publiques (MaPrimeRénov' + CEE + aides locales soumises à écrêtement) à un pourcentage maximum du coût TTC des travaux. Ce mécanisme garantit que le ménage conserve toujours un reste à charge minimum. Les taux d'écrêtement sont les suivants. Pour les ménages Bleu (revenus très modestes) : 90 %, ce qui signifie que le reste à charge minimum est de 10 % du coût TTC. Pour les Jaune : 75 %, reste à charge minimum de 25 %. Pour les Violet : 60 %, reste à charge minimum de 40 %. Pour les Rose : 40 %, reste à charge minimum de 60 %.
+    </p>
+
+    <h3>Comment fonctionne l'écrêtement en pratique</h3>
+
+    <p>
+      Prenons un exemple concret. Un ménage Jaune réalise l'isolation des murs par l'extérieur pour un coût de 15 000 € TTC. MaPrimeRénov' accorde 40 €/m² pour 80 m² = 3 200 €. La prime CEE obtenue est de 3 500 €. Le total des aides publiques est de 6 700 €. Le plafond d'écrêtement pour un ménage Jaune est de 75 % × 15 000 € = 11 250 €. Le total des aides (6 700 €) étant inférieur au plafond (11 250 €), il n'y a pas d'écrêtement dans ce cas. Le ménage perçoit l'intégralité des deux aides et son reste à charge est de 8 300 €, finançable par un éco-PTZ.
+    </p>
+
+    <p>
+      Maintenant, prenons un cas où l'écrêtement s'applique. Un ménage Bleu réalise l'isolation des combles perdus (60 m²) pour un coût de 3 000 € TTC. MaPrimeRénov' accorde 25 €/m² × 60 m² = 1 500 €. La prime CEE obtenue est de 1 800 €. Le total est de 3 300 €. Le plafond d'écrêtement pour un ménage Bleu est de 90 % × 3 000 € = 2 700 €. Le total des aides (3 300 €) dépasse le plafond (2 700 €). Le montant de MaPrimeRénov' sera donc réduit pour que le total ne dépasse pas 2 700 €. MaPrimeRénov' sera versée à hauteur de 2 700 € - 1 800 € (CEE) = 900 € au lieu de 1 500 €.
+    </p>
+
+    <h3>Ce qui n'entre pas dans l'écrêtement</h3>
+
+    <p>
+      L'éco-PTZ n'entre pas dans le calcul de l'écrêtement car c'est un prêt remboursable. La TVA réduite n'entre pas non plus dans le calcul car elle est intégrée au prix TTC des travaux (elle réduit le montant TTC, pas le montant des aides). Certaines aides locales, si elles ne sont pas financées par des fonds publics soumis aux règles de l'ANAH, peuvent également être exclues du calcul d'écrêtement. Vérifiez auprès de la collectivité.
+    </p>
+
+    <h2>Stratégies d'optimisation du cumul</h2>
+
+    <h3>Stratégie 1 : Comparer les offres CEE avant tout</h3>
+
+    <p>
+      La prime CEE est la seule aide dont le montant est négociable (il varie d'un fournisseur à l'autre). Comparez systématiquement les offres de 3 à 5 fournisseurs ou délégataires. Les écarts peuvent atteindre 50 % pour les mêmes travaux. Pour une isolation des murs par l'extérieur, l'écart entre la meilleure et la moins bonne offre peut représenter 2 000 à 3 000 €. Utilisez des comparateurs en ligne et n'hésitez pas à négocier.
+    </p>
+
+    <h3>Stratégie 2 : Regrouper les gestes pour maximiser l'éco-PTZ</h3>
+
+    <p>
+      Le plafond de l'éco-PTZ augmente avec le nombre de gestes : 15 000 € pour un geste, 25 000 € pour deux, 30 000 € pour trois ou plus, et 50 000 € pour une rénovation globale. En regroupant plusieurs types de travaux dans un même projet, vous augmentez le montant d'éco-PTZ disponible pour financer le reste à charge. Par exemple, isoler les murs (geste 1) + remplacer la chaudière (geste 2) + installer une VMC (geste 3) ouvre droit à un éco-PTZ de 30 000 € au lieu de 15 000 € pour chaque geste séparément.
+    </p>
+
+    <h3>Stratégie 3 : Explorer les aides locales</h3>
+
+    <p>
+      Les aides locales sont souvent méconnues mais peuvent représenter un complément significatif. De nombreuses régions proposent des aides spécifiques pour l'isolation, le remplacement du chauffage ou la rénovation globale. Certains départements offrent des éco-chèques ou des subventions complémentaires. Des communes ou intercommunalités proposent des aides ciblées pour les passoires thermiques ou les quartiers en rénovation urbaine. Le conseiller France Rénov' local est la meilleure source d'information sur les aides territoriales.
+    </p>
+
+    <h3>Stratégie 4 : Viser le parcours accompagné pour les rénovations ambitieuses</h3>
+
+    <p>
+      Pour les logements classés F ou G au DPE, le parcours accompagné de MaPrimeRénov' est généralement plus avantageux que le parcours par geste. Les taux de financement sont plus élevés et les plafonds de travaux plus importants. Un ménage Bleu peut obtenir jusqu'à 63 000 € d'aides avec le parcours accompagné, contre un cumul de 20 000 à 30 000 € avec le parcours par geste pour les mêmes travaux. L'investissement initial (audit énergétique, accompagnement) est largement rentabilisé par le surcroît d'aides.
+    </p>
+
+    <h3>Stratégie 5 : Anticiper l'écrêtement</h3>
+
+    <p>
+      Si le total de vos aides risque de dépasser le plafond d'écrêtement, il est parfois plus avantageux de ne pas demander toutes les aides possibles ou d'orienter les aides vers les postes de travaux où le ratio aide/coût est le plus favorable. Par exemple, si l'écrêtement réduit fortement le montant de MaPrimeRénov', il peut être intéressant de décaler certains travaux dans le temps (dans la limite des 5 ans du plafond MaPrimeRénov') pour éviter l'écrêtement sur l'ensemble du projet.
+    </p>
+
+    <h2>Exemples chiffrés complets</h2>
+
+    <h3>Exemple 1 : Ménage Bleu, rénovation globale G vers C</h3>
+
+    <p>
+      Foyer de 3 personnes en Île-de-France, RFR de 35 000 €, maison de 100 m², classe G. Travaux : ITE + isolation toiture + fenêtres + PAC air/eau + VMC double flux. Coût total : 55 000 € TTC (TVA 5,5 %). MaPrimeRénov' Accompagné (gain 4 classes, plafond 70 000 €, taux 80 %) : 44 000 €. Bonus sortie passoire : 5 500 €. Total MaPrimeRénov' : 49 500 €. Écrêtement 90 % × 55 000 € = 49 500 €. Les primes CEE (estimées à 6 000 €) sont écrêtées : le total MaPrimeRénov' + CEE ne peut pas dépasser 49 500 €, donc les CEE sont réduites à 0 € (MaPrimeRénov' atteint déjà le plafond). Reste à charge : 5 500 € (10 % du coût), finançable par éco-PTZ sur 15 ans = 31 €/mois.
+    </p>
+
+    <h3>Exemple 2 : Ménage Violet, deux gestes de rénovation</h3>
+
+    <p>
+      Couple sans enfant hors Île-de-France, RFR de 42 000 €, maison de 90 m², classe E. Travaux : isolation murs par l'extérieur (70 m²) + PAC air/eau. Coût total : 22 000 € TTC (TVA 5,5 %). MaPrimeRénov' isolation murs : 25 €/m² × 70 m² = 1 750 €. MaPrimeRénov' PAC air/eau : 3 000 €. Total MaPrimeRénov' : 4 750 €. Prime CEE isolation : 2 800 €. Prime CEE PAC : 3 200 €. Total CEE : 6 000 €. Total aides : 10 750 €. Écrêtement 60 % × 22 000 € = 13 200 €. Le total (10 750 €) est inférieur au plafond (13 200 €), pas d'écrêtement. Reste à charge : 11 250 €, finançable par éco-PTZ de 25 000 € (2 gestes) sur 15 ans = 63 €/mois.
+    </p>
+
+    <h3>Exemple 3 : Ménage Rose, travaux d'isolation seule</h3>
+
+    <p>
+      Couple avec 2 enfants en Île-de-France, RFR de 75 000 €, maison de 120 m², classe E. Travaux : isolation murs par l'extérieur (100 m²) + isolation combles (80 m²). Coût total : 25 000 € TTC (TVA 5,5 %). MaPrimeRénov' isolation murs (Rose) : 15 €/m² × 100 m² = 1 500 €. MaPrimeRénov' isolation combles (Rose) : 7 €/m² × 80 m² = 560 €. Total MaPrimeRénov' : 2 060 €. Prime CEE isolation murs : 3 500 €. Prime CEE isolation combles : 1 200 €. Total CEE : 4 700 €. Total aides : 6 760 €. Écrêtement 40 % × 25 000 € = 10 000 €. Le total (6 760 €) est inférieur au plafond (10 000 €), pas d'écrêtement. Reste à charge : 18 240 €, finançable par éco-PTZ de 25 000 € (2 gestes) sur 15 ans = 101 €/mois.
+    </p>
+
+    <h2>Les erreurs à éviter</h2>
+
+    <p>
+      Première erreur : signer le devis avant d'avoir accepté l'offre de prime CEE. C'est la cause la plus fréquente de perte de la prime CEE. L'offre doit être acceptée AVANT la signature du devis, sans exception.
+    </p>
+
+    <p>
+      Deuxième erreur : commencer les travaux avant la notification d'accord de MaPrimeRénov'. Si vous démarrez les travaux avant d'avoir reçu la notification, vous perdez le droit à MaPrimeRénov'.
+    </p>
+
+    <p>
+      Troisième erreur : choisir un artisan non RGE ou dont la certification ne correspond pas aux travaux. Vérifiez systématiquement la certification sur l'annuaire France Rénov' avant de signer le devis.
+    </p>
+
+    <p>
+      Quatrième erreur : ne pas comparer les offres CEE. Les écarts entre fournisseurs sont considérables et peuvent représenter plusieurs milliers d'euros pour les mêmes travaux.
+    </p>
+
+    <p>
+      Cinquième erreur : oublier de demander l'éco-PTZ. Beaucoup de ménages ignorent ce dispositif ou n'osent pas le demander à leur banque. L'éco-PTZ est un droit, pas une faveur bancaire. Si votre banque refuse sans motif valable (taux d'endettement excessif), changez de banque.
+    </p>
+
+    <p>
+      Sixième erreur : ne pas se renseigner sur les aides locales. Certaines collectivités proposent des aides très généreuses (jusqu'à 5 000 € ou plus) qui passent inaperçues faute de communication. Consultez systématiquement votre espace conseil France Rénov' local.
+    </p>
+
+  </div>
+
+  <!-- Outils associés -->
+  <div class="mt-10 bg-primary/5 border border-primary/20 rounded-xl p-6">
+    <h2 class="text-lg font-bold text-gray-900 mb-3">Outils associés</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/" class="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+        Simulateur d'aides
+      </a>
+      <a href="/guide-maprimerenov/" class="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        Guide MaPrimeRénov'
+      </a>
+      <a href="/guides/prime-cee-explication/" class="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+        Guide prime CEE
+      </a>
+      <a href="/guides/eco-ptz-2026/" class="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
+        Guide éco-PTZ
+      </a>
+    </div>
+  </div>
+
+  <!-- Sources -->
+  <div class="mt-8 text-sm text-gray-500 border-t border-border pt-6">
+    <h3 class="font-semibold text-gray-700 mb-2">Sources</h3>
+    <ul class="space-y-1">
+      <li>ANAH - <a href="https://www.anah.gouv.fr" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Règles de cumul MaPrimeRénov'</a></li>
+      <li>France Rénov' - <a href="https://www.france-renov.gouv.fr" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">france-renov.gouv.fr</a></li>
+      <li>Service-Public.fr - <a href="https://www.service-public.fr" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Aides à la rénovation énergétique</a></li>
+      <li>ANIL - <a href="https://www.anil.org" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">anil.org</a></li>
+    </ul>
+  </div>
+</Layout>

@@ -1,0 +1,147 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqItems = [
+  {
+    question: "Qui peut bénéficier de MaPrimeRénov' en 2026 ?",
+    answer: "MaPrimeRénov' est ouverte à tous les propriétaires (occupants ou bailleurs) de logements construits depuis plus de 15 ans en France métropolitaine (ou 2 ans en outre-mer). Le logement doit être une résidence principale occupée au moins 8 mois par an. Les montants varient selon quatre catégories de revenus (Bleu, Jaune, Violet, Rose) déterminées par le revenu fiscal de référence du foyer. Les propriétaires bailleurs s'engagent à louer le logement en tant que résidence principale pendant au moins 6 ans. Les copropriétés peuvent également bénéficier de MaPrimeRénov' Copropriétés pour les travaux sur les parties communes."
+  },
+  {
+    question: "Qu'est-ce que la prime CEE et comment l'obtenir ?",
+    answer: "La prime CEE (Certificats d'Économies d'Énergie) est une aide financée par les fournisseurs d'énergie (EDF, Engie, TotalEnergies, etc.) qui sont obligés par l'État de promouvoir les économies d'énergie. Pour en bénéficier, vous devez contacter un fournisseur d'énergie ou un délégataire AVANT de signer votre devis de travaux. Les montants varient selon le type de travaux, la zone climatique et le fournisseur. Il est conseillé de comparer les offres de plusieurs fournisseurs car les montants peuvent varier du simple au double. La prime CEE est cumulable avec MaPrimeRénov' et l'éco-PTZ."
+  },
+  {
+    question: "Comment fonctionne l'éco-PTZ (éco-prêt à taux zéro) ?",
+    answer: "L'éco-PTZ est un prêt sans intérêt destiné à financer des travaux de rénovation énergétique. Il est accessible sans condition de ressources pour les propriétaires (occupants ou bailleurs) de logements achevés depuis plus de 2 ans. Le montant maximum est de 15 000 € pour un geste de travaux, 25 000 € pour deux gestes, 30 000 € pour trois gestes ou plus, et 50 000 € pour une rénovation globale permettant un gain énergétique d'au moins 35 %. La durée de remboursement peut aller jusqu'à 20 ans. Pour l'obtenir, adressez-vous à une banque partenaire avec votre devis d'artisan RGE."
+  },
+  {
+    question: "Quels travaux bénéficient de la TVA à 5,5 % ?",
+    answer: "La TVA réduite à 5,5 % s'applique aux travaux d'amélioration de la performance énergétique des logements achevés depuis plus de 2 ans : isolation thermique (murs, toiture, planchers, fenêtres), installation de systèmes de chauffage performants (pompes à chaleur, chaudières biomasse, systèmes solaires), installation de VMC, régulation de chauffage, et les travaux indissociablement liés. L'avantage est que cette TVA réduite s'applique automatiquement sur la facture de l'artisan, sans démarche supplémentaire. L'artisan vous demandera simplement de remplir une attestation confirmant l'ancienneté du logement."
+  },
+  {
+    question: "Pourquoi faut-il un artisan RGE et comment le vérifier ?",
+    answer: "La certification RGE (Reconnu Garant de l'Environnement) est obligatoire pour que vos travaux soient éligibles à MaPrimeRénov', aux primes CEE, à l'éco-PTZ et à la TVA à 5,5 %. C'est un label délivré par des organismes accrédités (Qualibat, Qualit'EnR, Qualifelec, Certibat) qui atteste de la compétence de l'artisan en matière de travaux d'efficacité énergétique et d'énergies renouvelables. Pour vérifier la certification d'un artisan, consultez l'annuaire officiel sur france-renov.gouv.fr ou appelez le 0 808 800 700 (service gratuit). Vérifiez que la certification correspond bien au type de travaux envisagés."
+  },
+  {
+    question: "Peut-on cumuler plusieurs aides à la rénovation ?",
+    answer: "Oui, la plupart des aides sont cumulables entre elles. Vous pouvez combiner MaPrimeRénov' + primes CEE + éco-PTZ + TVA 5,5 % + aides locales. Toutefois, le cumul MaPrimeRénov' + CEE est plafonné par un taux d'écrêtement qui varie selon la catégorie de revenus : 90 % pour les ménages Bleu, 75 % pour les Jaune, 60 % pour les Violet et 40 % pour les Rose. Cela signifie que le total des aides publiques ne peut pas dépasser ce pourcentage du coût TTC des travaux. L'éco-PTZ, n'étant pas une subvention mais un prêt, ne compte pas dans ce plafond."
+  },
+  {
+    question: "Comment sont définies les catégories de revenus (Bleu, Jaune, Violet, Rose) ?",
+    answer: "Les catégories de revenus sont déterminées par le revenu fiscal de référence (RFR) du foyer, indiqué sur votre dernier avis d'imposition. Les plafonds dépendent du nombre de personnes dans le foyer et de la localisation du logement (Île-de-France ou hors Île-de-France). Par exemple, pour un couple avec deux enfants en Île-de-France : Bleu jusqu'à 42 381 €, Jaune jusqu'à 51 592 €, Violet jusqu'à 67 585 €, Rose au-dessus. Hors Île-de-France : Bleu jusqu'à 30 572 €, Jaune jusqu'à 37 140 €, Violet jusqu'à 51 592 €, Rose au-dessus. Ces plafonds sont réactualisés chaque année."
+  },
+  {
+    question: "Quels sont les délais pour obtenir MaPrimeRénov' ?",
+    answer: "Le processus comporte plusieurs étapes. Après dépôt de votre demande en ligne sur maprimerenov.gouv.fr, le délai d'instruction est d'environ 15 jours ouvrés. Vous recevez ensuite une notification d'accord (ou de rejet). Important : vous devez attendre cette notification avant de signer votre devis et de démarrer les travaux. Une fois les travaux terminés, vous transmettez la facture sur votre espace personnel. Le versement de la prime intervient sous 15 jours ouvrés après validation de la facture. Au total, comptez 2 à 4 mois entre le dépôt de la demande et le versement effectif."
+  },
+  {
+    question: "Les propriétaires bailleurs peuvent-ils bénéficier des aides ?",
+    answer: "Oui, les propriétaires bailleurs sont éligibles à MaPrimeRénov' sous certaines conditions : le logement doit être loué en tant que résidence principale du locataire pendant au moins 6 ans après les travaux, et le propriétaire doit s'engager à informer le locataire de la réalisation des travaux. Les montants sont identiques à ceux des propriétaires occupants selon la catégorie de revenus du propriétaire. Un propriétaire bailleur peut bénéficier de MaPrimeRénov' pour un maximum de 3 logements. Les primes CEE et l'éco-PTZ sont également accessibles aux propriétaires bailleurs."
+  },
+  {
+    question: "Comment fonctionne MaPrimeRénov' Copropriétés ?",
+    answer: "MaPrimeRénov' Copropriétés finance les travaux de rénovation énergétique des parties communes des copropriétés. L'aide est de 30 % du montant des travaux HT (plafonné à 25 000 € par logement) pour un gain énergétique d'au moins 35 %. Un bonus de 10 % est accordé si les travaux permettent de sortir le bâtiment du statut de passoire thermique (classes F ou G). La demande est portée par le syndic de copropriété au nom de l'ensemble des copropriétaires. Un accompagnement par une assistance à maîtrise d'ouvrage (AMO) est obligatoire et financé à 100 % (dans la limite de 600 € par logement)."
+  },
+  {
+    question: "L'audit énergétique est-il obligatoire pour bénéficier des aides ?",
+    answer: "L'audit énergétique n'est pas obligatoire pour le parcours par geste de MaPrimeRénov' (travaux ponctuels). En revanche, il est obligatoire pour le parcours accompagné (rénovation d'ampleur) et pour obtenir un éco-PTZ de 50 000 € (rénovation globale). Depuis le 1er avril 2023, l'audit énergétique est également obligatoire pour la vente de logements classés F ou G au DPE. L'audit coûte entre 800 et 1 500 € pour une maison individuelle. MaPrimeRénov' finance partiellement l'audit : 500 € pour les ménages Bleu et Jaune, 400 € pour les Violet, 300 € pour les Rose."
+  },
+  {
+    question: "Quelles aides existent pour installer une pompe à chaleur ?",
+    answer: "L'installation d'une pompe à chaleur (PAC) bénéficie de plusieurs aides cumulables. MaPrimeRénov' : jusqu'à 5 000 € pour une PAC air/eau (catégorie Bleu) et jusqu'à 11 000 € pour une PAC géothermique. Prime CEE : entre 2 500 et 5 000 € selon le type de PAC et la zone climatique. TVA à 5,5 % sur l'ensemble de la prestation. Éco-PTZ : jusqu'à 15 000 € pour financer le reste à charge sans intérêts. Les PAC air/air (climatisation réversible) ne sont pas éligibles à MaPrimeRénov' mais peuvent bénéficier des primes CEE. Depuis 2025, les PAC utilisant des fluides frigorigènes à faible impact climatique bénéficient d'un bonus."
+  },
+  {
+    question: "Peut-on bénéficier des aides pour une résidence secondaire ?",
+    answer: "Non, MaPrimeRénov' est réservée aux résidences principales (occupées au moins 8 mois par an). Les primes CEE sont en revanche accessibles pour les résidences secondaires, car elles n'exigent pas de condition d'occupation. L'éco-PTZ est également limité aux résidences principales. La TVA à 5,5 % s'applique aux logements achevés depuis plus de 2 ans, qu'il s'agisse de résidences principales ou secondaires, à condition que les travaux concernent l'amélioration énergétique. Pour une résidence secondaire, les primes CEE et la TVA réduite constituent donc les deux principales aides mobilisables."
+  },
+  {
+    question: "Comment choisir entre le parcours par geste et le parcours accompagné de MaPrimeRénov' ?",
+    answer: "Le parcours par geste convient pour des travaux ponctuels (remplacement d'une chaudière, isolation d'un mur, etc.). Il est plus simple et plus rapide. Le parcours accompagné (MaPrimeRénov' Rénovation d'ampleur) est conçu pour des rénovations globales visant un gain d'au moins 2 classes DPE. Il offre des montants d'aide supérieurs (jusqu'à 63 000 €) mais nécessite un accompagnement obligatoire par un opérateur Mon Accompagnateur Rénov' et un audit énergétique préalable. Le parcours accompagné est recommandé pour les passoires thermiques (F ou G) qui doivent gagner plusieurs classes DPE. Les deux parcours ne sont pas cumulables pour un même logement sur la même période."
+  }
+];
+---
+
+<Layout
+  title="FAQ Aides Rénovation Énergétique 2026 - Questions Fréquentes"
+  description="Réponses aux questions fréquentes sur les aides à la rénovation énergétique : MaPrimeRénov', CEE, éco-PTZ, TVA 5,5 %, artisans RGE, cumul des aides, catégories de revenus."
+>
+  <!-- Schema.org FAQPage -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  })} />
+
+  <nav class="text-sm text-gray-500 mb-6" aria-label="Fil d'Ariane">
+    <ol class="flex flex-wrap items-center gap-1">
+      <li><a href="/" class="hover:text-primary">Accueil</a></li>
+      <li class="before:content-['›'] before:mx-1">FAQ</li>
+    </ol>
+  </nav>
+
+  <div class="prose prose-slate max-w-none">
+    <h1>Questions fréquentes - Aides à la rénovation énergétique</h1>
+
+    <p class="lead text-lg text-gray-600">
+      Retrouvez les réponses aux questions les plus posées sur les aides financières à la
+      rénovation énergétique en 2026 : MaPrimeRénov', primes CEE, éco-PTZ, TVA réduite,
+      certification RGE et cumul des dispositifs.
+    </p>
+
+    <div class="not-prose mt-8 space-y-3">
+      {faqItems.map((item) => (
+        <details class="group bg-white border border-border rounded-xl overflow-hidden">
+          <summary class="flex items-start gap-3 cursor-pointer px-5 py-4 text-left font-semibold text-gray-900 hover:bg-gray-50 transition-colors select-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-0.5 shrink-0 text-primary transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+            {item.question}
+          </summary>
+          <div class="px-5 pb-5 pl-12 text-gray-600 leading-relaxed">
+            <p>{item.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <div class="not-prose mt-12 bg-primary/5 border border-primary/20 rounded-xl p-6">
+      <h2 class="text-lg font-bold text-gray-900 mb-3">Estimez vos aides en quelques clics</h2>
+      <p class="text-gray-600 mb-4">
+        Notre simulateur gratuit calcule le cumul de toutes les aides auxquelles vous avez
+        droit selon votre situation et vos travaux : MaPrimeRénov', CEE, éco-PTZ, TVA réduite.
+      </p>
+      <a href="/" class="inline-flex items-center gap-2 bg-primary text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-primary-dark transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+        </svg>
+        Lancer le simulateur
+      </a>
+    </div>
+
+    <div class="not-prose mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <a href="/guide-maprimerenov/" class="block bg-white border border-border rounded-xl p-5 hover:border-primary/40 hover:shadow-sm transition-all">
+        <h3 class="font-semibold text-gray-900 mb-1">Guide MaPrimeRénov' 2026</h3>
+        <p class="text-sm text-gray-500">Montants, conditions d'éligibilité et démarches détaillées.</p>
+      </a>
+      <a href="/guide-isolation/" class="block bg-white border border-border rounded-xl p-5 hover:border-primary/40 hover:shadow-sm transition-all">
+        <h3 class="font-semibold text-gray-900 mb-1">Guide Isolation thermique</h3>
+        <p class="text-sm text-gray-500">Techniques ITE/ITI, matériaux, coûts et retour sur investissement.</p>
+      </a>
+      <a href="/guides/prime-cee-explication/" class="block bg-white border border-border rounded-xl p-5 hover:border-primary/40 hover:shadow-sm transition-all">
+        <h3 class="font-semibold text-gray-900 mb-1">Prime CEE expliquée</h3>
+        <p class="text-sm text-gray-500">Fonctionnement des certificats d'économies d'énergie et montants.</p>
+      </a>
+      <a href="/guides/cumul-aides-renovation/" class="block bg-white border border-border rounded-xl p-5 hover:border-primary/40 hover:shadow-sm transition-all">
+        <h3 class="font-semibold text-gray-900 mb-1">Cumul des aides</h3>
+        <p class="text-sm text-gray-500">Quelles aides combiner et comment maximiser vos financements.</p>
+      </a>
+    </div>
+  </div>
+</Layout>

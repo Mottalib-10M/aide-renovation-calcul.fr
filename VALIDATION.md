@@ -30,6 +30,47 @@
 - **Écrêtement** : 60 % × 18 500 = 11 100 € ; aides max haut = 3 900 + 4 720 = 8 620 € → pas d'écrêtement
 - **Source** : ANAH, barèmes MaPrimeRénov' 2026
 
+## Build status
+
+- **Build:** 35 pages, 0 errors
+- **Tests:** 27/27 passed
+- **Sitemap:** auto-generated (sitemap-index.xml)
+
+## Page inventory (35 pages)
+
+| Category | Count | Details |
+|---|---|---|
+| Home + legal | 3 | index, mentions-legales, confidentialite |
+| Tool pages | 4 | index (simulateur), guide-maprimerenov, guide-isolation, faq |
+| Guides index | 1 | /guides/ |
+| Guide articles | 8 | prime-cee-explication, eco-ptz-2026, pompe-a-chaleur-aides, renovation-globale-dpe, artisan-rge-qualification, tva-reduite-renovation, cumul-aides-renovation, audit-energetique-obligatoire |
+| Work-type pages | 16 | aide-pompe-chaleur-air-eau through aide-depose-cuve-fioul |
+| Category pages | 4 | aides-renovation-tres-modeste, modeste, intermediaire, aises |
+
+## Components
+
+- RenovationCalculator.tsx (multi-work-type calculator)
+
+## Data files
+
+- baremes-mpr-2026.ts — 16 work types, 4 revenue categories, MPR/CEE/PTZ rates
+- travaux-data.ts — 16 work-type entries with FAQ, context, and related links
+- categories-data.ts — 4 revenue categories with income thresholds and FAQ
+
+## Quality gates
+
+- [x] Build passes (35 pages, 0 errors)
+- [x] Tests pass (27/27)
+- [x] Sitemap generated
+- [x] Schema.org on every page (WebApplication, FAQPage, BreadcrumbList)
+- [x] Analytics: Plausible + GA4 placeholder
+- [x] robots.txt present
+- [x] llms.txt present
+- [x] All guide pages > 1500 words
+- [x] Disclaimer in footer
+- [x] Mobile-responsive navigation (hamburger menu)
+- [x] Internal cross-linking between tools and guides
+
 ## Barèmes sources
 
 - [MaPrimeRénov' - ANAH](https://www.anah.gouv.fr/les-aides/maprimerenov)

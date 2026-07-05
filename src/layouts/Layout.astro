@@ -20,6 +20,7 @@ const pageUrl = canonical ?? `${siteUrl}${Astro.url.pathname}`;
     <link rel="canonical" href={pageUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="robots" content="index, follow" />
+    <meta name="author" content="Mottalib Radif" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -50,14 +51,44 @@ const pageUrl = canonical ?? `${siteUrl}${Astro.url.pathname}`;
       "description": description,
     })} />
 
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Aide Renovation Calcul",
+      "url": "https://aide-renovation-calcul.fr",
+      "logo": "https://aide-renovation-calcul.fr/favicon.svg",
+      "founder": {
+        "@type": "Person",
+        "name": "Mottalib Radif"
+      }
+    })} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mottalib Radif",
+      "jobTitle": "Financial Technology Expert",
+      "url": "https://aide-renovation-calcul.fr"
+    })} />
+
     <!-- Plausible Analytics -->
     <script defer data-domain="aide-renovation-calcul.fr" src="https://plausible.io/js/script.js"></script>
+
+    <!-- TODO: Replace G-XXXXXXXXXX with your real GA4 Measurement ID from https://analytics.google.com -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
 
     <style>
       @import '../styles/global.css';
     </style>
   </head>
   <body class="min-h-screen bg-surface text-gray-900 font-sans">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-blue-700 focus:rounded-lg focus:shadow-lg focus:ring-2 focus:ring-blue-500">Skip to content</a>
     <header class="bg-white border-b border-border">
       <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
         <a href="/" class="flex items-center gap-2 text-primary font-bold text-xl hover:text-primary-dark transition-colors">
@@ -66,15 +97,102 @@ const pageUrl = canonical ?? `${siteUrl}${Astro.url.pathname}`;
           </svg>
           aide-renovation-calcul.fr
         </a>
+
+        <!-- Desktop nav -->
         <nav class="hidden md:flex items-center gap-6 text-sm">
           <a href="/" class="text-gray-600 hover:text-primary transition-colors">Simulateur</a>
-          <a href="/guide-maprimerenov/" class="text-gray-600 hover:text-primary transition-colors">Guide MaPrimeRénov'</a>
-          <a href="/guide-isolation/" class="text-gray-600 hover:text-primary transition-colors">Guide Isolation</a>
+          <a href="/guide-maprimerenov/" class="text-gray-600 hover:text-primary transition-colors">MaPrimeRénov'</a>
+          <a href="/guide-isolation/" class="text-gray-600 hover:text-primary transition-colors">Isolation</a>
+          <a href="/faq/" class="text-gray-600 hover:text-primary transition-colors">FAQ</a>
+          <a href="/guides/" class="text-gray-600 hover:text-primary transition-colors">Guides</a>
         </nav>
+
+        <!-- Mobile hamburger button -->
+        <button
+          type="button"
+          id="mobile-menu-btn"
+          class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-gray-600 hover:text-primary hover:bg-gray-100 transition-colors"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </div>
+
+      <!-- Mobile nav -->
+      <nav
+        id="mobile-menu"
+        class="hidden md:hidden border-t border-border bg-white"
+      >
+        <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col gap-3 text-sm">
+          <a href="/" class="flex items-center gap-2 py-2 px-3 rounded-lg text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+            Simulateur
+          </a>
+          <a href="/guide-maprimerenov/" class="flex items-center gap-2 py-2 px-3 rounded-lg text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            MaPrimeRénov'
+          </a>
+          <a href="/guide-isolation/" class="flex items-center gap-2 py-2 px-3 rounded-lg text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+            Isolation
+          </a>
+          <a href="/faq/" class="flex items-center gap-2 py-2 px-3 rounded-lg text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            FAQ
+          </a>
+          <a href="/guides/" class="flex items-center gap-2 py-2 px-3 rounded-lg text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+            Guides
+          </a>
+        </div>
+      </nav>
     </header>
 
-    <main class="max-w-5xl mx-auto px-4 py-8">
+    <script is:inline>
+      (function() {
+        var btn = document.getElementById('mobile-menu-btn');
+        var menu = document.getElementById('mobile-menu');
+        var hamburger = document.getElementById('hamburger-icon');
+        var closeIcon = document.getElementById('close-icon');
+        if (btn && menu && hamburger && closeIcon) {
+          btn.addEventListener('click', function() {
+            var isOpen = !menu.classList.contains('hidden');
+            if (isOpen) {
+              menu.classList.add('hidden');
+              hamburger.classList.remove('hidden');
+              closeIcon.classList.add('hidden');
+              btn.setAttribute('aria-expanded', 'false');
+              btn.setAttribute('aria-label', 'Ouvrir le menu');
+            } else {
+              menu.classList.remove('hidden');
+              hamburger.classList.add('hidden');
+              closeIcon.classList.remove('hidden');
+              btn.setAttribute('aria-expanded', 'true');
+              btn.setAttribute('aria-label', 'Fermer le menu');
+            }
+          });
+        }
+      })();
+    </script>
+
+    <main id="main-content" class="max-w-5xl mx-auto px-4 py-8">
       <slot />
     </main>
 
@@ -82,11 +200,13 @@ const pageUrl = canonical ?? `${siteUrl}${Astro.url.pathname}`;
       <div class="max-w-5xl mx-auto px-4 py-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-gray-600">
           <div>
-            <h3 class="font-semibold text-gray-900 mb-3">Simulateurs</h3>
+            <h3 class="font-semibold text-gray-900 mb-3">Simulateurs & Guides</h3>
             <ul class="space-y-2">
               <li><a href="/" class="hover:text-primary">Cumul des aides rénovation</a></li>
               <li><a href="/guide-maprimerenov/" class="hover:text-primary">Guide MaPrimeRénov' 2026</a></li>
               <li><a href="/guide-isolation/" class="hover:text-primary">Guide Isolation thermique</a></li>
+              <li><a href="/guides/" class="hover:text-primary">Tous les guides</a></li>
+              <li><a href="/faq/" class="hover:text-primary">FAQ</a></li>
             </ul>
           </div>
           <div>
@@ -104,6 +224,14 @@ const pageUrl = canonical ?? `${siteUrl}${Astro.url.pathname}`;
               <li><a href="/confidentialite/" class="hover:text-primary">Politique de confidentialité</a></li>
             </ul>
           </div>
+        </div>
+        <div class="mt-8 pt-6 border-t border-gray-200">
+          <h3 class="font-semibold text-gray-900 mb-3">Sites partenaires</h3>
+          <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-600">
+            <li><a href="https://fraisdenotaire-calcul.fr" target="_blank" rel="noopener" class="hover:text-primary">Frais de Notaire</a></li>
+            <li><a href="https://assurance-emprunteur-eco.fr" target="_blank" rel="noopener" class="hover:text-primary">Assurance Emprunteur</a></li>
+            <li><a href="https://cartegrisesimple.fr" target="_blank" rel="noopener" class="hover:text-primary">Carte Grise</a></li>
+          </ul>
         </div>
         <div class="mt-8 pt-6 border-t border-gray-200 text-xs text-gray-400">
           <p>Simulateur gratuit et indépendant. Les résultats sont indicatifs et ne constituent pas un engagement de versement d'aides. Données basées sur les barèmes officiels 2026.</p>

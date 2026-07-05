@@ -1,0 +1,367 @@
+---
+import Layout from '../layouts/Layout.astro';
+import RenovationCalculator from '../components/RenovationCalculator';
+import { categoriesData, type CategoriePageData } from '../lib/categories-data';
+import { travauxData } from '../lib/travaux-data';
+import { TAUX_ECRETEMENT } from '../lib/baremes-mpr-2026';
+
+export function getStaticPaths() {
+  return categoriesData.map((c) => ({
+    params: { categorie: c.slug },
+    props: { categorie: c },
+  }));
+}
+
+interface Props {
+  categorie: CategoriePageData;
+}
+
+const { categorie } = Astro.props;
+
+const fmt = (n: number) => n.toLocaleString('fr-FR');
+
+// Filter work types: show all work types and their amounts for this category
+const travauxAvecMontants = travauxData.map((t) => ({
+  ...t,
+  montant: t.montantMPR[categorie.categorieKey],
+  eligible: t.montantMPR[categorie.categorieKey] !== null,
+}));
+
+const travauxEligibles = travauxAvecMontants.filter((t) => t.eligible);
+const travauxNonEligibles = travauxAvecMontants.filter((t) => !t.eligible);
+
+const pageTitle = `Aides rénovation ${categorie.label.toLowerCase()} 2026 - Catégorie ${categorie.couleurNom} MaPrimeRénov'`;
+const pageDescription = `Tous les montants MaPrimeRénov' 2026 pour les ${categorie.label.toLowerCase()} (catégorie ${categorie.couleurNom}). Plafonds de revenus, taux d'écrêtement (${Math.round(categorie.tauxEcretement * 100)} %) et simulation gratuite.`;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://aide-renovation-calcul.fr/" },
+    { "@type": "ListItem", "position": 2, "name": `Aides ${categorie.label.toLowerCase()}`, "item": `https://aide-renovation-calcul.fr/aides-renovation-${categorie.slug}/` },
+  ],
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": categorie.faq.map((f) => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer },
+  })),
+};
+
+const categoryGroups = [
+  { key: 'chauffage', label: 'Chauffage', icon: '🔥' },
+  { key: 'isolation', label: 'Isolation', icon: '🧱' },
+  { key: 'ventilation', label: 'Ventilation', icon: '💨' },
+  { key: 'autre', label: 'Autres', icon: '🔧' },
+] as const;
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <div class="space-y-10">
+    <!-- Breadcrumb -->
+    <nav aria-label="Fil d'Ariane" class="text-sm text-gray-500">
+      <ol class="flex flex-wrap items-center gap-1.5">
+        <li><a href="/" class="hover:text-primary transition-colors">Accueil</a></li>
+        <li class="before:content-['/'] before:mx-1.5 before:text-gray-300">
+          <span class="text-gray-700 font-medium">Aides {categorie.label.toLowerCase()}</span>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- H1 + intro -->
+    <div class="max-w-3xl">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-6 h-6 rounded-full" style={`background-color: ${categorie.couleur}`} />
+        <span class="text-sm font-semibold px-3 py-1 rounded-full" style={`background-color: ${categorie.couleur}15; color: ${categorie.couleur}`}>
+          Catégorie {categorie.couleurNom}
+        </span>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Aides à la rénovation pour les {categorie.label.toLowerCase()} en 2026
+      </h1>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        {categorie.description}
+      </p>
+    </div>
+
+    <!-- Chiffres clés -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="bg-white rounded-xl shadow-sm border border-border p-5 text-center">
+        <p class="text-xs text-gray-500 mb-1">Taux d'écrêtement</p>
+        <p class="text-3xl font-bold" style={`color: ${categorie.couleur}`}>
+          {Math.round(categorie.tauxEcretement * 100)} %
+        </p>
+        <p class="text-xs text-gray-400 mt-1">du coût TTC max</p>
+      </div>
+      <div class="bg-white rounded-xl shadow-sm border border-border p-5 text-center">
+        <p class="text-xs text-gray-500 mb-1">Reste à charge minimum</p>
+        <p class="text-3xl font-bold text-gray-900">
+          {Math.round((1 - categorie.tauxEcretement) * 100)} %
+        </p>
+        <p class="text-xs text-gray-400 mt-1">du coût TTC</p>
+      </div>
+      <div class="bg-white rounded-xl shadow-sm border border-border p-5 text-center">
+        <p class="text-xs text-gray-500 mb-1">Plafond cumul 5 ans</p>
+        <p class="text-3xl font-bold text-primary">
+          {fmt(categorie.plafondCumul)} €
+        </p>
+        <p class="text-xs text-gray-400 mt-1">par logement</p>
+      </div>
+    </div>
+
+    <!-- Plafonds de revenus -->
+    {categorie.plafondsIdf.length > 0 && (
+      <div class="bg-white rounded-xl shadow-sm border border-border p-6">
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">
+          Plafonds de revenus - Catégorie {categorie.couleurNom}
+        </h2>
+        <p class="text-sm text-gray-600 mb-4">
+          Pour être classé en catégorie {categorie.couleurNom}, votre revenu fiscal de référence (RFR) doit être
+          inférieur ou égal aux plafonds ci-dessous, selon la composition de votre foyer et votre zone géographique.
+        </p>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b-2 border-gray-200">
+                <th class="text-left py-3 pr-4 font-semibold text-gray-700">Foyer</th>
+                <th class="text-right py-3 px-4 font-semibold text-gray-700">Île-de-France</th>
+                <th class="text-right py-3 pl-4 font-semibold text-gray-700">Hors Île-de-France</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[1, 2, 3, 4, 5].map((n) => (
+                <tr class="border-b border-gray-100">
+                  <td class="py-2.5 pr-4 text-gray-800">{n} personne{n > 1 ? 's' : ''}</td>
+                  <td class="text-right py-2.5 px-4 font-medium text-gray-700">{fmt(categorie.plafondsIdf[n - 1])} €</td>
+                  <td class="text-right py-2.5 pl-4 font-medium text-gray-700">{fmt(categorie.plafondsHorsIdf[n - 1])} €</td>
+                </tr>
+              ))}
+              <tr class="border-b border-gray-100 bg-gray-50">
+                <td class="py-2.5 pr-4 text-gray-600 italic">Par personne supp.</td>
+                <td class="text-right py-2.5 px-4 text-gray-600">+ {fmt(categorie.parPersonneSuppIdf)} €</td>
+                <td class="text-right py-2.5 pl-4 text-gray-600">+ {fmt(categorie.parPersonneSuppHorsIdf)} €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-xs text-gray-400 mt-3">
+          RFR = Revenu fiscal de référence figurant sur votre avis d'imposition 2025 (revenus 2024).
+        </p>
+      </div>
+    )}
+
+    {categorie.categorieKey === 'rose' && (
+      <div class="bg-white rounded-xl shadow-sm border border-border p-6">
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">
+          Plafonds de revenus - Catégorie {categorie.couleurNom}
+        </h2>
+        <p class="text-sm text-gray-600">
+          Vous êtes en catégorie Rose si votre revenu fiscal de référence dépasse les plafonds de la catégorie Violet.
+          Il n'y a pas de plafond supérieur : tous les ménages au-delà des seuils Violet sont classés en catégorie Rose.
+          Consultez la page <a href="/aides-renovation-intermediaire/" class="text-primary hover:underline">aides catégorie Violet</a> pour connaître les plafonds exacts.
+        </p>
+      </div>
+    )}
+
+    <!-- Tableau des travaux éligibles -->
+    <div class="bg-white rounded-xl shadow-sm border border-border p-6">
+      <h2 class="text-xl font-semibold text-gray-900 mb-4">
+        Travaux éligibles en catégorie {categorie.couleurNom}
+      </h2>
+
+      {categoryGroups.map((group) => {
+        const groupTravaux = travauxEligibles.filter((t) => t.category === group.key);
+        if (groupTravaux.length === 0) return null;
+        return (
+          <div class="mb-6">
+            <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-2">
+              {group.label}
+            </h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm mb-4">
+                <thead>
+                  <tr class="border-b border-gray-200">
+                    <th class="text-left py-2 pr-4 font-medium text-gray-600">Travaux</th>
+                    <th class="text-right py-2 px-3 font-medium text-gray-600">MaPrimeRénov'</th>
+                    <th class="text-right py-2 px-3 font-medium text-gray-600">Prime CEE</th>
+                    <th class="text-right py-2 pl-3 font-medium text-gray-600">Plafond TTC</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {groupTravaux.map((t) => {
+                    const unite = t.unite === 'par_m2' ? '/m²' : t.unite === 'par_fenetre' ? '/fen.' : '';
+                    return (
+                      <tr class="border-b border-gray-100 hover:bg-gray-50">
+                        <td class="py-2 pr-4">
+                          <a href={`/aide-${t.slug}/`} class="text-primary hover:underline font-medium">
+                            {t.label}
+                          </a>
+                        </td>
+                        <td class="text-right py-2 px-3 font-semibold text-gray-800">
+                          {fmt(t.montant as number)} €{unite}
+                        </td>
+                        <td class="text-right py-2 px-3 text-secondary">
+                          {t.ceeBas > 0 ? `${fmt(t.ceeBas)} – ${fmt(t.ceeHaut)} €${unite}` : '-'}
+                        </td>
+                        <td class="text-right py-2 pl-3 text-gray-600">
+                          {fmt(t.plafondDepenses)} €{unite}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        );
+      })}
+
+      {travauxNonEligibles.length > 0 && (
+        <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+          <h3 class="text-sm font-semibold text-gray-500 mb-2">
+            Travaux non éligibles en catégorie {categorie.couleurNom}
+          </h3>
+          <ul class="text-sm text-gray-500 space-y-1">
+            {travauxNonEligibles.map((t) => (
+              <li class="flex items-center gap-2">
+                <span class="text-gray-300">✕</span>
+                <a href={`/aide-${t.slug}/`} class="hover:text-primary">{t.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+
+    <!-- Simulateur -->
+    <div class="bg-green-50 rounded-xl border border-green-200 p-6">
+      <h2 class="text-xl font-semibold text-gray-900 mb-2">
+        Simulez vos aides - Catégorie {categorie.couleurNom}
+      </h2>
+      <p class="text-gray-600 mb-4">
+        Entrez vos informations pour calculer le montant exact de vos aides MaPrimeRénov', primes CEE,
+        éco-PTZ et TVA réduite. Le simulateur détermine automatiquement votre catégorie de revenus
+        et applique les barèmes 2026.
+      </p>
+    </div>
+    <RenovationCalculator client:idle />
+
+    <!-- Contenu éditorial -->
+    <div class="prose prose-slate max-w-none">
+      <h2>Catégorie {categorie.couleurNom} MaPrimeRénov' : qui est concerné ?</h2>
+      <p>{categorie.contexte.split('\n\n')[0]}</p>
+
+      <h2>Montants et taux d'écrêtement pour les {categorie.label.toLowerCase()}</h2>
+      {categorie.contexte.split('\n\n').slice(1).map((para) => (
+        <p>{para}</p>
+      ))}
+
+      <h2>Comment bénéficier des aides en catégorie {categorie.couleurNom} ?</h2>
+      <p>
+        La première étape est de vérifier votre éligibilité en consultant votre revenu fiscal de référence
+        sur votre dernier avis d'imposition. Si votre RFR est inférieur aux plafonds de la catégorie
+        {' '}{categorie.couleurNom}, vous pouvez déposer une demande MaPrimeRénov' sur la plateforme
+        officielle <a href="https://www.maprimerenov.gouv.fr" target="_blank" rel="noopener noreferrer">maprimerenov.gouv.fr</a>.
+        La demande doit être faite avant le début des travaux.
+      </p>
+      <p>
+        Choisissez un artisan certifié RGE (Reconnu Garant de l'Environnement) pour réaliser vos travaux.
+        Vous pouvez trouver un artisan qualifié sur l'annuaire officiel
+        <a href="https://www.france-renov.gouv.fr" target="_blank" rel="noopener noreferrer">France Rénov'</a>.
+        Pour les primes CEE, comparez les offres de plusieurs fournisseurs d'énergie avant de signer
+        votre devis, car les montants varient significativement d'un fournisseur à l'autre.
+      </p>
+      <p>
+        Un accompagnateur France Rénov' peut vous aider gratuitement dans vos démarches. Depuis 2024,
+        le recours à un accompagnateur agréé Mon Accompagnateur Rénov' est obligatoire pour les projets
+        de rénovation d'ampleur (gain d'au moins 2 classes DPE). Pour les {categorie.label.toLowerCase()},
+        la prise en charge du coût de l'accompagnement est {categorie.categorieKey === 'bleu' ? 'totale (100 %)' : categorie.categorieKey === 'jaune' ? 'de 80 %' : categorie.categorieKey === 'violet' ? 'de 40 %' : 'de 20 %'}.
+      </p>
+
+      <h2>Questions fréquentes</h2>
+      {categorie.faq.map((f) => (
+        <details>
+          <summary><strong>{f.question}</strong></summary>
+          <p>{f.answer}</p>
+        </details>
+      ))}
+    </div>
+
+    <!-- Liens vers les autres catégories -->
+    <div class="bg-white rounded-xl shadow-sm border border-border p-6">
+      <h2 class="text-xl font-semibold text-gray-900 mb-4">Autres catégories de revenus</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {categoriesData.filter((c) => c.slug !== categorie.slug).map((c) => (
+          <a
+            href={`/aides-renovation-${c.slug}/`}
+            class="block p-4 rounded-lg border border-gray-200 hover:border-primary hover:shadow-md transition-all"
+          >
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-4 h-4 rounded-full" style={`background-color: ${c.couleur}`} />
+              <span class="font-semibold text-gray-900 text-sm">{c.couleurNom}</span>
+            </div>
+            <p class="text-xs text-gray-500">{c.label}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Liens guides -->
+    <div class="bg-white rounded-xl shadow-sm border border-border p-6">
+      <h2 class="text-xl font-semibold text-gray-900 mb-4">Guides et ressources</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <a href="/guide-maprimerenov/" class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-primary hover:shadow-md transition-all">
+          <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center text-primary shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </div>
+          <div>
+            <span class="font-medium text-gray-900 text-sm">Guide MaPrimeRénov' 2026</span>
+            <p class="text-xs text-gray-500">Barèmes complets, conditions, démarches</p>
+          </div>
+        </a>
+        <a href="/guide-isolation/" class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-primary hover:shadow-md transition-all">
+          <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600 shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+          </div>
+          <div>
+            <span class="font-medium text-gray-900 text-sm">Guide Isolation thermique</span>
+            <p class="text-xs text-gray-500">Techniques, matériaux, performances</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Sources -->
+    <div class="border-t border-gray-200 pt-6 text-sm text-gray-500">
+      <h2 class="font-semibold text-gray-700 mb-2">Sources officielles</h2>
+      <ul class="space-y-1">
+        <li>
+          <a href="https://www.anah.gouv.fr" target="_blank" rel="noopener noreferrer" class="hover:text-primary">
+            ANAH - Agence nationale de l'habitat (anah.gouv.fr)
+          </a>
+        </li>
+        <li>
+          <a href="https://www.maprimerenov.gouv.fr" target="_blank" rel="noopener noreferrer" class="hover:text-primary">
+            MaPrimeRénov' - Plateforme officielle (maprimerenov.gouv.fr)
+          </a>
+        </li>
+        <li>
+          <a href="https://www.france-renov.gouv.fr" target="_blank" rel="noopener noreferrer" class="hover:text-primary">
+            France Rénov' - Service public de la rénovation (france-renov.gouv.fr)
+          </a>
+        </li>
+      </ul>
+      <p class="mt-3 text-xs text-gray-400">
+        Données basées sur les barèmes MaPrimeRénov' en vigueur au 1<sup>er</sup> janvier 2026 et les plafonds de revenus publiés par l'ANAH.
+        Ce site est indépendant et n'est pas affilié à l'ANAH ni au gouvernement.
+      </p>
+    </div>
+  </div>
+</Layout>

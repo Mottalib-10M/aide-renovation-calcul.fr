@@ -1,0 +1,87 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://aide-renovation-calcul.fr/" },
+    { "@type": "ListItem", "position": 2, "name": "A propos", "item": "https://aide-renovation-calcul.fr/a-propos/" }
+  ]
+};
+---
+<Layout title="A propos - Aide Renovation Calcul" description="Decouvrez qui est derriere le simulateur d'aides a la renovation energetique. Mottalib Radif, expert en technologie financiere.">
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <nav class="text-sm text-gray-500 mb-8">
+    <ol class="flex items-center gap-2">
+      <li><a href="/" class="hover:text-gray-700">Accueil</a></li>
+      <li>/</li>
+      <li class="text-gray-800 font-medium">A propos</li>
+    </ol>
+  </nav>
+
+  <div class="max-w-3xl mx-auto">
+    <h1 class="text-3xl font-bold text-gray-900 mb-6">A propos d'Aide Renovation Calcul</h1>
+
+    <section class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Qui sommes-nous ?</h2>
+      <div class="flex flex-col sm:flex-row gap-6">
+        <div class="flex-shrink-0">
+          <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-3xl font-bold">MR</div>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Mottalib Radif</h3>
+          <p class="text-sm text-green-600 font-medium mb-3">Fondateur et expert en technologie financiere</p>
+          <p class="text-gray-600 mb-3">
+            Mottalib Radif est un specialiste du developpement d'outils numeriques dedies a la finance personnelle et a l'habitat. Grace a son experience dans la conception d'applications web et de simulateurs financiers, il aide les particuliers a naviguer dans le paysage complexe des aides a la renovation energetique. Sa maitrise des dispositifs MaPrimeRenov', des certificats d'economies d'energie (CEE) et de l'eco-PTZ lui permet de proposer des outils de calcul fiables et actualises.
+          </p>
+          <p class="text-gray-600">
+            Convaincu que la transition energetique passe par l'accessibilite de l'information, Mottalib concoit des simulateurs clairs et gratuits pour que chaque proprietaire puisse evaluer les aides auxquelles il a droit avant de lancer ses travaux.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Pourquoi ce simulateur ?</h2>
+      <p class="text-gray-600 mb-4">
+        La renovation energetique des logements est un enjeu majeur en France, tant pour reduire les factures d'energie que pour lutter contre le changement climatique. Cependant, les dispositifs d'aides sont nombreux et les conditions d'eligibilite varient selon les revenus du menage, la nature des travaux et la zone geographique du logement.
+      </p>
+      <p class="text-gray-600 mb-4">
+        Ce simulateur a ete cree pour simplifier cette complexite. En renseignant quelques informations sur votre situation et vos projets de travaux, vous obtenez une estimation du montant total des aides cumulables : MaPrimeRenov', primes CEE (Coup de pouce), eco-pret a taux zero et autres dispositifs locaux. L'objectif est de vous donner une vision claire de votre reste a charge avant meme de contacter un professionnel RGE.
+      </p>
+      <p class="text-gray-600">
+        Nos calculs s'appuient sur les baremes officiels publies par l'Agence Nationale de l'Habitat (ANAH) et sur les grilles de primes CEE en vigueur. Les resultats sont fournis a titre indicatif et ne constituent pas un engagement de versement. Ils vous permettent neanmoins de comparer les options et de planifier votre budget de renovation en toute connaissance de cause.
+      </p>
+    </section>
+
+    <section class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Notre engagement</h2>
+      <ul class="space-y-3 text-gray-600">
+        <li class="flex items-start gap-3">
+          <span class="text-green-500 mt-1 font-bold">1.</span>
+          <span><strong>Gratuite et independance</strong> : notre outil est entierement gratuit, sans publicite ni partenariat commercial avec des entreprises de travaux. Nous ne collectons aucune donnee personnelle.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-green-500 mt-1 font-bold">2.</span>
+          <span><strong>Donnees officielles</strong> : les montants d'aides sont bases sur les baremes publies par l'ANAH, le Ministere de la Transition ecologique et les operateurs CEE agrees.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-green-500 mt-1 font-bold">3.</span>
+          <span><strong>Mise a jour continue</strong> : les baremes MaPrimeRenov' et CEE evoluent chaque annee. Nous actualisons nos donnees pour refleter les montants en vigueur en 2026.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Sources et references</h2>
+      <p class="text-gray-600 mb-4">
+        Les informations presentees sur ce site proviennent de sources institutionnelles : le site officiel MaPrimeRenov' (maprimerenov.gouv.fr), l'Agence Nationale de l'Habitat (ANAH), France Renov' et le Ministere de la Transition ecologique. Les baremes CEE sont issus des fiches d'operations standardisees publiees par le Ministere.
+      </p>
+      <p class="text-gray-600">
+        Ce simulateur constitue un outil d'estimation et ne se substitue pas a un diagnostic realise par un professionnel RGE (Reconnu Garant de l'Environnement). Pour obtenir un chiffrage precis et engager vos travaux, nous vous recommandons de consulter un conseiller France Renov' ou de solliciter plusieurs devis aupres d'artisans certifies.
+      </p>
+    </section>
+  </div>
+</Layout>

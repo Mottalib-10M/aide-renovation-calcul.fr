@@ -1,0 +1,261 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Prime CEE 2026 : Fonctionnement, Montants et Comment l'Obtenir"
+  description="Guide complet sur les Certificats d'Économies d'Énergie (CEE) : fonctionnement du dispositif, montants par type de travaux, obligés, délégataires et démarches pour obtenir la prime."
+>
+  <!-- Schema.org BreadcrumbList -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://aide-renovation-calcul.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://aide-renovation-calcul.fr/guides/" },
+      { "@type": "ListItem", "position": 3, "name": "Prime CEE", "item": "https://aide-renovation-calcul.fr/guides/prime-cee-explication/" }
+    ]
+  })} />
+
+  <!-- Schema.org FAQPage for embedded FAQ -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quelle est la différence entre un obligé et un délégataire CEE ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Un obligé est un fournisseur d'énergie (EDF, Engie, TotalEnergies, etc.) soumis par la loi à l'obligation de collecter des CEE. Un délégataire est une entreprise à qui l'obligé a transféré tout ou partie de cette obligation. Les deux peuvent vous verser une prime CEE, mais les montants peuvent varier significativement d'un acteur à l'autre."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Faut-il s'inscrire avant de signer le devis pour la prime CEE ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, c'est une condition impérative. Vous devez accepter l'offre de prime CEE d'un obligé ou délégataire AVANT de signer le devis des travaux. Si vous signez le devis d'abord, vous perdez définitivement le droit à la prime CEE pour ces travaux."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "La prime CEE est-elle cumulable avec MaPrimeRénov' ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, la prime CEE est entièrement cumulable avec MaPrimeRénov'. Le cumul est toutefois plafonné par un taux d'écrêtement qui limite le total des aides publiques à un pourcentage du coût TTC des travaux (90 % pour les ménages Bleu, 75 % pour les Jaune, 60 % pour les Violet, 40 % pour les Rose)."
+        }
+      }
+    ]
+  })} />
+
+  <nav class="text-sm text-gray-500 mb-6" aria-label="Fil d'Ariane">
+    <ol class="flex flex-wrap items-center gap-1">
+      <li><a href="/" class="hover:text-primary">Accueil</a></li>
+      <li class="before:content-['›'] before:mx-1"><a href="/guides/" class="hover:text-primary">Guides</a></li>
+      <li class="before:content-['›'] before:mx-1">Prime CEE</li>
+    </ol>
+  </nav>
+
+  <div class="prose prose-slate max-w-none">
+
+    <h1>Prime CEE 2026 : comprendre les Certificats d'Économies d'Énergie et maximiser votre prime</h1>
+
+    <p class="lead text-lg text-gray-600">
+      Les Certificats d'Économies d'Énergie (CEE) constituent le deuxième pilier du financement de la rénovation énergétique en France, après MaPrimeRénov'. Ce dispositif méconnu permet de percevoir une prime substantielle pour vos travaux d'économies d'énergie, financée directement par les fournisseurs d'énergie. Ce guide détaille le fonctionnement du mécanisme, les montants disponibles, les acteurs impliqués et les démarches pour obtenir la meilleure prime possible.
+    </p>
+
+    <h2>Qu'est-ce que le dispositif des CEE ?</h2>
+
+    <p>
+      Le dispositif des Certificats d'Économies d'Énergie a été créé par la loi POPE du 13 juillet 2005 (loi de programme fixant les orientations de la politique énergétique). Son principe est simple : l'État impose aux fournisseurs d'énergie (électricité, gaz, fioul, carburants, GPL) une obligation d'économies d'énergie exprimée en kWh cumac (kilowattheures cumulés actualisés, c'est-à-dire les économies d'énergie sur la durée de vie de l'équipement, pondérées par un taux d'actualisation). Pour satisfaire cette obligation, les fournisseurs doivent collecter un certain volume de CEE en finançant des actions d'économies d'énergie chez les particuliers, les entreprises ou les collectivités.
+    </p>
+
+    <p>
+      Le dispositif fonctionne par périodes pluriannuelles. Nous sommes actuellement dans la cinquième période (P5), qui court du 1<sup>er</sup> janvier 2022 au 31 décembre 2025, avec une sixième période en préparation. Chaque période fixe un objectif national d'économies d'énergie plus ambitieux que la précédente. Les fournisseurs d'énergie qui ne remplissent pas leur obligation s'exposent à une pénalité de 20 € par MWh cumac manquant, ce qui les incite fortement à financer des travaux chez les particuliers.
+    </p>
+
+    <p>
+      Concrètement, pour un particulier, le dispositif CEE se traduit par une prime versée en échange de la réalisation de travaux éligibles. Cette prime peut prendre la forme d'un virement bancaire, d'un bon d'achat, d'une réduction sur la facture d'énergie ou d'un chèque. La forme la plus courante et la plus avantageuse est le virement bancaire direct.
+    </p>
+
+    <h2>Les acteurs du dispositif CEE</h2>
+
+    <h3>Les obligés</h3>
+
+    <p>
+      Les obligés sont les fournisseurs d'énergie soumis à l'obligation d'économies d'énergie. Il s'agit principalement d'EDF, Engie, TotalEnergies, les distributeurs de fioul domestique et les distributeurs de GPL. Ces entreprises sont directement responsables devant l'État du volume de CEE collecté. Elles disposent généralement de leur propre programme de primes qu'elles proposent directement aux particuliers.
+    </p>
+
+    <h3>Les délégataires</h3>
+
+    <p>
+      Les délégataires sont des entreprises spécialisées auxquelles les obligés peuvent transférer une partie de leur obligation. Ces sociétés (comme Effy, Hellio, Sonergia, Vos Travaux Éco) se sont spécialisées dans la collecte de CEE et proposent souvent des montants de primes compétitifs. Elles jouent un rôle d'intermédiaire entre le particulier et le marché des CEE. Pour le particulier, il n'y a aucune différence pratique entre un obligé et un délégataire : les deux versent une prime en échange de la réalisation de travaux.
+    </p>
+
+    <h3>Les mandataires</h3>
+
+    <p>
+      Les mandataires sont des entreprises qui agissent au nom et pour le compte d'un obligé. Ils ne portent pas eux-mêmes l'obligation mais facilitent la collecte de CEE pour le compte d'un fournisseur d'énergie. Les artisans RGE peuvent également être mandataires et déduire directement la prime CEE du montant de votre devis, ce qui simplifie la démarche pour le particulier.
+    </p>
+
+    <h2>Les travaux éligibles aux primes CEE</h2>
+
+    <p>
+      Les travaux éligibles aux primes CEE sont répertoriés dans des fiches d'opérations standardisées publiées par le ministère de la Transition écologique. Chaque fiche définit les conditions techniques que doivent respecter les travaux, les économies d'énergie générées (en kWh cumac) et les critères d'éligibilité. Voici les principales catégories de travaux résidentiels.
+    </p>
+
+    <h3>Isolation thermique</h3>
+
+    <p>
+      L'isolation thermique est le poste qui génère le plus de CEE et donc les primes les plus élevées. Les fiches standardisées couvrent l'isolation des combles ou de la toiture (fiche BAR-EN-101), l'isolation des murs (BAR-EN-102), l'isolation des planchers bas (BAR-EN-103) et le remplacement des fenêtres (BAR-EN-104). Pour chaque type d'isolation, la fiche précise la résistance thermique minimale requise : R ≥ 7 m².K/W pour les combles, R ≥ 3,7 m².K/W pour les murs, R ≥ 3 m².K/W pour les planchers bas. Le respect de ces valeurs minimales est impératif pour l'obtention de la prime.
+    </p>
+
+    <h3>Chauffage et eau chaude sanitaire</h3>
+
+    <p>
+      L'installation d'une pompe à chaleur air/eau ou géothermique (BAR-TH-159), d'une chaudière biomasse (BAR-TH-113), d'un système solaire combiné (BAR-TH-143), d'un chauffe-eau thermodynamique (BAR-TH-148) ou d'un poêle à bois performant (BAR-TH-112) est éligible aux CEE. Les montants de prime sont généralement plus élevés pour les équipements utilisant des énergies renouvelables. La prime CEE pour une pompe à chaleur air/eau peut atteindre 2 500 à 5 000 € selon la zone climatique et le fournisseur.
+    </p>
+
+    <h3>Ventilation et régulation</h3>
+
+    <p>
+      L'installation d'une VMC double flux (BAR-TH-125) et d'un système de régulation du chauffage comme un thermostat programmable connecté (BAR-TH-173) sont également éligibles. Ces travaux génèrent des volumes de CEE plus modestes et donc des primes plus faibles, typiquement de 200 à 800 €, mais elles restent intéressantes car ces équipements sont relativement peu coûteux.
+    </p>
+
+    <h2>Les montants des primes CEE en 2026</h2>
+
+    <p>
+      Les montants des primes CEE ne sont pas fixés par la réglementation : ils dépendent du prix de marché du CEE (coté sur le registre national Emmy) et de la politique commerciale de chaque obligé ou délégataire. C'est pourquoi les montants peuvent varier considérablement d'un fournisseur à l'autre pour les mêmes travaux. En 2026, voici les ordres de grandeur constatés pour une maison individuelle.
+    </p>
+
+    <p>
+      Pour l'isolation des combles perdus (100 m²), la prime CEE se situe entre 800 et 1 800 €. Pour l'isolation des murs par l'extérieur (80 m²), elle se situe entre 2 000 et 4 500 €. Pour l'isolation des murs par l'intérieur (80 m²), entre 1 200 et 2 800 €. Pour le remplacement de fenêtres simple vitrage (6 fenêtres), entre 300 et 900 €. Pour une pompe à chaleur air/eau, entre 2 500 et 5 000 €. Pour une PAC géothermique, entre 3 500 et 6 000 €. Pour une chaudière biomasse, entre 2 000 et 4 000 €. Pour un chauffe-eau thermodynamique, entre 100 et 300 €.
+    </p>
+
+    <p>
+      Les ménages en situation de précarité énergétique (correspondant aux catégories Bleu et Jaune de MaPrimeRénov') bénéficient de primes CEE majorées. Le dispositif « Coup de pouce » (quand il est actif) double voire triple les montants de prime pour certains gestes comme le remplacement d'une chaudière fioul par une pompe à chaleur. Vérifiez les offres en vigueur au moment de votre projet car ces bonifications évoluent régulièrement.
+    </p>
+
+    <h2>Les zones climatiques et leur impact</h2>
+
+    <p>
+      Le montant des primes CEE dépend de la zone climatique du logement. La France métropolitaine est découpée en trois zones : H1 (nord et est de la France, climat continental), H2 (ouest et sud-ouest, climat océanique) et H3 (pourtour méditerranéen, climat méditerranéen). Les primes sont les plus élevées en zone H1, où les besoins de chauffage sont les plus importants, et les plus faibles en zone H3. L'écart entre les zones peut atteindre 30 à 40 % pour les travaux d'isolation et de chauffage.
+    </p>
+
+    <h2>La procédure pour obtenir la prime CEE</h2>
+
+    <h3>Étape 1 : Comparer les offres avant de signer le devis</h3>
+
+    <p>
+      C'est la règle la plus importante du dispositif CEE : vous devez choisir votre fournisseur de prime et accepter son offre AVANT de signer le devis des travaux. Si vous signez le devis d'abord, aucun obligé ne pourra vous verser de prime pour ces travaux. Prenez le temps de comparer les offres de plusieurs acteurs (au moins 3 ou 4) : les écarts de montant peuvent être significatifs. Des comparateurs en ligne existent pour faciliter cette étape.
+    </p>
+
+    <h3>Étape 2 : Accepter l'offre de prime</h3>
+
+    <p>
+      Une fois votre choix fait, acceptez l'offre de prime en ligne ou par courrier selon le fournisseur. Vous recevrez une confirmation et un cadre contractuel qui précise le montant de la prime, les conditions techniques à respecter et les justificatifs à fournir après les travaux. Conservez précieusement ce document.
+    </p>
+
+    <h3>Étape 3 : Faire réaliser les travaux par un artisan RGE</h3>
+
+    <p>
+      Les travaux doivent être réalisés par un artisan certifié RGE dont la qualification correspond au type de travaux concerné. La mention RGE doit figurer sur le devis et la facture. L'artisan doit effectuer une visite technique préalable pour dimensionner correctement les travaux et vérifier la faisabilité du chantier.
+    </p>
+
+    <h3>Étape 4 : Constituer le dossier de demande</h3>
+
+    <p>
+      Après la fin des travaux, vous devez transmettre au fournisseur de prime un dossier comprenant généralement la facture détaillée des travaux, l'attestation sur l'honneur signée par vous et par l'artisan, une copie de votre avis d'imposition (pour les primes bonifiées), et éventuellement des photos des travaux. Le fournisseur vérifie la conformité du dossier et procède au versement de la prime dans un délai de 2 à 6 semaines.
+    </p>
+
+    <h2>Comment maximiser votre prime CEE</h2>
+
+    <h3>Comparer systématiquement les offres</h3>
+
+    <p>
+      La règle d'or est de ne jamais accepter la première offre de prime CEE reçue. Les écarts entre fournisseurs peuvent atteindre 50 % pour les mêmes travaux. Utilisez les comparateurs en ligne et n'hésitez pas à contacter directement les grands acteurs du marché (EDF, Engie, TotalEnergies, Effy, Hellio) pour obtenir leurs meilleurs tarifs. Certains fournisseurs proposent des offres promotionnelles ponctuelles avec des montants majorés.
+    </p>
+
+    <h3>Vérifier les offres « Coup de pouce »</h3>
+
+    <p>
+      Les offres « Coup de pouce » sont des bonifications décidées par le gouvernement pour accélérer certains types de travaux. Le Coup de pouce Chauffage (remplacement d'une chaudière individuelle au charbon, fioul ou gaz par un système renouvelable) et le Coup de pouce Rénovation performante (bouquet de travaux permettant un gain de 55 % d'économies d'énergie) offrent des montants de prime significativement supérieurs aux primes CEE classiques. Ces offres ont des dates de validité limitées : vérifiez leur disponibilité au moment de votre projet.
+    </p>
+
+    <h3>Regrouper les travaux quand c'est possible</h3>
+
+    <p>
+      Si vous envisagez plusieurs gestes de rénovation (par exemple isolation + chauffage), regrouper les travaux peut permettre de bénéficier d'offres groupées plus avantageuses de la part de certains fournisseurs de CEE. De plus, le Coup de pouce Rénovation performante, qui impose un bouquet de travaux, offre des montants bien supérieurs à la somme des primes individuelles.
+    </p>
+
+    <h2>Les pièges à éviter</h2>
+
+    <p>
+      Le marché des CEE attire malheureusement des acteurs peu scrupuleux. Méfiez-vous des entreprises qui vous démarchent par téléphone en promettant des travaux gratuits ou à « 1 euro ». Ces offres, qui existaient légalement dans le cadre du dispositif Coup de pouce pour les ménages très modestes, ont été largement détournées par des entreprises qui réalisent des travaux de mauvaise qualité. Depuis 2022, le gouvernement a renforcé les contrôles et supprimé progressivement les offres à 1 euro.
+    </p>
+
+    <p>
+      Autre piège courant : signer le devis avant d'avoir accepté l'offre de prime CEE. Cette erreur est irréversible et vous fait perdre la totalité de la prime. Assurez-vous également que l'artisan choisi est bien certifié RGE pour le type de travaux concerné au moment de la signature du devis. Une certification expirée ou ne correspondant pas aux travaux entraîne le rejet du dossier CEE.
+    </p>
+
+    <p>
+      Enfin, vérifiez que les caractéristiques techniques des matériaux installés respectent les exigences de la fiche d'opération standardisée correspondante. Par exemple, un isolant de combles avec une résistance thermique de R = 6 m².K/W au lieu du minimum requis de R = 7 m².K/W entraînera le rejet de votre demande de prime CEE, même si les travaux sont par ailleurs de bonne qualité.
+    </p>
+
+    <h2>CEE et contrôles qualité</h2>
+
+    <p>
+      Le dispositif CEE prévoit des contrôles qualité sur un échantillon de chantiers. Le COFRAC (Comité français d'accréditation) mandate des organismes indépendants pour vérifier la conformité des travaux réalisés. Ces contrôles portent sur la qualité de la mise en œuvre, les caractéristiques techniques des matériaux installés et la concordance avec les informations déclarées dans le dossier CEE. En cas de non-conformité, la prime peut être réclamée en remboursement et l'obligé peut se voir infliger des pénalités.
+    </p>
+
+    <p>
+      Pour le particulier, ces contrôles sont une garantie de qualité. Si un inspecteur vous contacte pour vérifier les travaux réalisés chez vous, il est dans votre intérêt de faciliter cette visite. Elle est gratuite et peut permettre d'identifier des malfaçons que vous pourriez faire corriger par l'artisan dans le cadre de sa garantie.
+    </p>
+
+    <h2>L'avenir du dispositif CEE</h2>
+
+    <p>
+      Le dispositif CEE existe depuis 2006 et a été reconduit à chaque période avec des objectifs croissants. La sixième période, en cours de préparation, devrait maintenir voire augmenter les obligations des fournisseurs d'énergie, ce qui est favorable au maintien de primes attractives pour les particuliers. Le gouvernement étudie également des évolutions pour mieux articuler les CEE avec MaPrimeRénov' et simplifier les démarches pour les ménages, notamment en généralisant les offres où l'artisan déduit directement la prime du montant du devis.
+    </p>
+
+    <p>
+      La tendance est également au renforcement des contrôles qualité et à l'exclusion des acteurs peu fiables. Les exigences techniques des fiches d'opérations standardisées sont régulièrement revues à la hausse pour garantir des économies d'énergie réelles et durables. Ces évolutions sont positives pour les particuliers qui bénéficient de travaux de meilleure qualité.
+    </p>
+
+  </div>
+
+  <!-- Outils associés -->
+  <div class="mt-10 bg-primary/5 border border-primary/20 rounded-xl p-6">
+    <h2 class="text-lg font-bold text-gray-900 mb-3">Outils associés</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/" class="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+        Simulateur d'aides
+      </a>
+      <a href="/guides/cumul-aides-renovation/" class="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+        Guide cumul des aides
+      </a>
+      <a href="/guide-maprimerenov/" class="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        Guide MaPrimeRénov'
+      </a>
+      <a href="/faq/" class="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        FAQ
+      </a>
+    </div>
+  </div>
+
+  <!-- Sources -->
+  <div class="mt-8 text-sm text-gray-500 border-t border-border pt-6">
+    <h3 class="font-semibold text-gray-700 mb-2">Sources</h3>
+    <ul class="space-y-1">
+      <li>Ministère de la Transition écologique - <a href="https://www.ecologie.gouv.fr/dispositif-des-certificats-deconomies-denergie" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Dispositif des CEE</a></li>
+      <li>Registre national des CEE - <a href="https://www.emmy.fr" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">emmy.fr</a></li>
+      <li>ADEME - <a href="https://www.ademe.fr" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">ademe.fr</a></li>
+      <li>France Rénov' - <a href="https://www.france-renov.gouv.fr" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">france-renov.gouv.fr</a></li>
+    </ul>
+  </div>
+</Layout>

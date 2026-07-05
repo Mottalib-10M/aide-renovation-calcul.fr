@@ -1,0 +1,100 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://aide-renovation-calcul.fr/" },
+    { "@type": "ListItem", "position": 2, "name": "Glossaire", "item": "https://aide-renovation-calcul.fr/glossaire/" }
+  ]
+};
+
+const terms = [
+  {
+    term: "Audit energetique",
+    definition: "L'audit energetique est un diagnostic approfondi de la performance energetique d'un logement. Il identifie les postes de deperdition thermique et propose un plan de travaux hierarchise. Il est obligatoire pour beneficier de MaPrimeRenov' Renovation d'ampleur."
+  },
+  {
+    term: "Bouquet de travaux",
+    definition: "Un bouquet de travaux designe un ensemble de travaux de renovation energetique realises simultanement. Combiner plusieurs interventions (isolation, chauffage, ventilation) permet souvent de beneficier d'aides majorees et d'obtenir un meilleur gain energetique global."
+  },
+  {
+    term: "CEE (Certificats d'Economies d'Energie)",
+    definition: "Les CEE sont un dispositif oblige par l'Etat qui impose aux fournisseurs d'energie de financer des travaux d'economies d'energie chez les particuliers. En pratique, cela se traduit par des primes versees aux menages pour financer l'isolation, le chauffage ou la ventilation."
+  },
+  {
+    term: "Classe energetique",
+    definition: "La classe energetique designe la categorie attribuee a un logement en fonction de sa consommation d'energie et de ses emissions de gaz a effet de serre, de A (tres performant) a G (tres peu performant). Elle est determinee par le DPE."
+  },
+  {
+    term: "DPE (Diagnostic de Performance Energetique)",
+    definition: "Le DPE est un document obligatoire qui evalue la consommation energetique d'un logement et ses emissions de CO2. Il attribue une etiquette de A a G et est indispensable lors de la vente ou de la location d'un bien immobilier."
+  },
+  {
+    term: "Eco-PTZ (Eco-Pret a Taux Zero)",
+    definition: "L'eco-PTZ est un pret bancaire sans interet destine a financer des travaux de renovation energetique. Il est accessible sans condition de ressources et peut atteindre 50 000 euros pour une renovation globale. Il est cumulable avec MaPrimeRenov' et les CEE."
+  },
+  {
+    term: "Isolation thermique",
+    definition: "L'isolation thermique consiste a reduire les echanges de chaleur entre l'interieur et l'exterieur d'un batiment. Elle concerne les murs, la toiture, les planchers et les fenetres. C'est generalement le poste de travaux le plus efficace pour reduire la consommation energetique."
+  },
+  {
+    term: "MaPrimeRenov'",
+    definition: "MaPrimeRenov' est la principale aide de l'Etat pour la renovation energetique des logements. Geree par l'ANAH, elle est accessible a tous les proprietaires, occupants ou bailleurs. Son montant varie selon les revenus du menage, la nature des travaux et la zone geographique."
+  },
+  {
+    term: "Passoire thermique",
+    definition: "Une passoire thermique designe un logement classe F ou G sur l'echelle du DPE, c'est-a-dire tres mal isole et tres consommateur d'energie. Depuis 2025, les logements classes G sont progressivement interdits a la location."
+  },
+  {
+    term: "Pompe a chaleur (PAC)",
+    definition: "Une pompe a chaleur est un systeme de chauffage qui puise les calories dans l'air exterieur, le sol ou l'eau pour chauffer le logement. Les PAC air-eau et geothermiques sont eligibles a MaPrimeRenov' et aux primes CEE, offrant des economies d'energie significatives."
+  },
+  {
+    term: "Prime Coup de pouce",
+    definition: "Les primes Coup de pouce sont des aides bonifiees dans le cadre des CEE, destinees a encourager certains travaux prioritaires comme le remplacement d'une chaudiere fioul ou gaz par une pompe a chaleur, ou l'isolation des combles et planchers."
+  },
+  {
+    term: "Renovation globale",
+    definition: "La renovation globale designe un ensemble de travaux permettant d'ameliorer significativement la performance energetique d'un logement (gain d'au moins deux classes DPE). Elle ouvre droit a des aides majorees dans le cadre de MaPrimeRenov' Renovation d'ampleur."
+  },
+  {
+    term: "Reste a charge",
+    definition: "Le reste a charge est le montant que le proprietaire doit financer apres deduction de toutes les aides (MaPrimeRenov', CEE, eco-PTZ, aides locales). Il represente la part du cout des travaux qui reste a la charge du menage."
+  },
+  {
+    term: "RGE (Reconnu Garant de l'Environnement)",
+    definition: "Le label RGE est une certification attribuee aux artisans et entreprises du batiment qui respectent des criteres de competence en matiere de renovation energetique. Faire appel a un professionnel RGE est obligatoire pour beneficier de la plupart des aides financieres."
+  },
+  {
+    term: "VMC (Ventilation Mecanique Controlee)",
+    definition: "La VMC est un systeme de ventilation qui assure le renouvellement de l'air interieur d'un logement. La VMC double flux, qui recupere la chaleur de l'air extrait, est particulierement recommandee dans les logements bien isoles pour garantir une bonne qualite d'air."
+  }
+];
+---
+<Layout title="Glossaire de la renovation energetique - Aide Renovation Calcul" description="Definitions des termes cles de la renovation energetique : MaPrimeRenov', CEE, DPE, eco-PTZ, RGE et plus encore.">
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <nav class="text-sm text-gray-500 mb-8">
+    <ol class="flex items-center gap-2">
+      <li><a href="/" class="hover:text-gray-700">Accueil</a></li>
+      <li>/</li>
+      <li class="text-gray-800 font-medium">Glossaire</li>
+    </ol>
+  </nav>
+
+  <div class="max-w-3xl mx-auto">
+    <h1 class="text-3xl font-bold text-gray-900 mb-4">Glossaire de la renovation energetique</h1>
+    <p class="text-gray-600 mb-8">Retrouvez les definitions des termes essentiels de la renovation energetique et des aides financieres disponibles. Ce glossaire vous aide a mieux comprendre les dispositifs et les travaux eligibles.</p>
+
+    <div class="space-y-6">
+      {terms.map((item) => (
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+          <h2 class="text-lg font-semibold text-green-700 mb-2">{item.term}</h2>
+          <p class="text-gray-600">{item.definition}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>
